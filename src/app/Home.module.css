@@ -15,3 +15,36 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
+.card {
+  background: linear-gradient(180deg, rgba(10,18,28,0.6), rgba(5,8,12,0.6));
+  border: 2px solid rgba(20,160,255,0.12);
+  padding: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.cardMeta {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  padding: 8px;
+  background: linear-gradient(90deg, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
+  border-left: 3px solid rgba(20,160,255,0.35);
+  color: #fff;
+}
+
+.glimpseFrame {
+  max-width: 900px;
+  border: 3px solid rgba(20,160,255,0.18);
+  padding: 18px;
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
+}
+
+/* tweak for reveal-section if you want slightly later reveal */
+.reveal-section {
+  will-change: transform, opacity;
+}
