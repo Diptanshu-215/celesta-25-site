@@ -1,19 +1,29 @@
 {
   "events": [
-    {
-      "name": "Drones",
-      "img_src": "/images/drone.png",
-      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006"
-    },
-    {
-      "name": "Robo Wars",
-      "img_src": "/images/robowar.png",
-      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006"
-    },
-    {
-      "name": "Aqua Rush",
-      "img_src": "/images/aquarush.png",
-      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006"
-    }
+    { "name": "15kg RoboWars", "img_src": "/images/robowars-15kg.png", "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006" },
+    { "name": "8kg RoboWars", "img_src": "/images/robowars-8kg.png", "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006" },
+    { "name": "Death Race", "img_src": "/images/deathrace.png", "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006" },
+    { "name": "Robo Soccer", "img_src": "/images/robosoccer.png", "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006" },
+    { "name": "Line Follower", "img_src": "/images/linefollower.png", "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006" },
+    { "name": "Aerosprint", "img_src": "/images/aerosprint.png", "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006" },
+    { "name": "Aqua Rush", "img_src": "/images/aquarush.png", "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006" },
+    { "name": "Micromouse", "img_src": "/images/micromouse.png", "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006" },
+    { "name": "ByteRace", "img_src": "/images/byterace.png", "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006" },
+    { "name": "NJATH", "img_src": "/images/njath.png", "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006" },
+    { "name": "CivilTech Challenge", "img_src": "/images/civiltech.png", "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006" },
+    { "name": "Mates Event", "img_src": "/images/mates.png", "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006" },
+    { "name": "Static Rush", "img_src": "/images/staticrush.png", "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006" },
+    { "name": "APD", "img_src": "/images/apd.png", "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006" },
+    { "name": "Wavebots", "img_src": "/images/wavebots.png", "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006" },
+    { "name": "Depiction", "img_src": "/images/depiction.png", "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006" },
+    { "name": "Astro Particle Voyage", "img_src": "/images/astroparticle.png", "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006" },
+    { "name": "Kepler's Maze", "img_src": "/images/keplers-maze.png", "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006" },
+    { "name": "Case Study Competition", "img_src": "/images/casestudy.png", "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006" },
+    { "name": "Future Visionaries", "img_src": "/images/futurevisionaries.png", "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006" },
+    { "name": "Meme Marketing", "img_src": "/images/mememarketing.png", "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006" },
+    { "name": "Beg Borrow Steal", "img_src": "/images/begborrowsteal.png", "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006" },
+    { "name": "Documentation", "img_src": "/images/documentation.png", "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006" },
+    { "name": "Tech Quiz", "img_src": "/images/techquiz.png", "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006" }
   ]
 }
+
