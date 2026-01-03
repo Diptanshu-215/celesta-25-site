@@ -10,6 +10,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import EventCard from "./events/event-card";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -271,18 +272,12 @@ export default function Home() {
           >
             {events.map((event, idx) => (
               <SwiperSlide key={idx}>
-                <div className={`${styles.card} relative`}>
-                  <Image
-                    src={event.img_src}
-                    alt={event.name}
-                    width={600}
-                    height={700}
-                    className="w-full h-auto"
-                  />
-                  <div className={styles.cardMeta}>
-                    <h3 className="uppercase font-bold">{event.name}</h3>
-                  </div>
-                </div>
+                <EventCard
+                  key={idx}
+                  name={event.name}
+                  img_src={event.img_src}
+                  register_link={event.register_link}
+                />
               </SwiperSlide>
             ))}
           </Swiper>
