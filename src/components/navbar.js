@@ -28,7 +28,7 @@ export default function Navbar() {
                 </Link>
 
                 {/* Desktop Navigation */}
-                <div className="hidden md:flex items-center gap-6 font-orbitron text-sm uppercase text-white">
+                <div className="hidden md:flex items-center gap-6 state-wide text-xs uppercase text-white">
                     <Link href="/" className="opacity-80 hover:opacity-100 transition">Home</Link>
                     <Link href="/events" className="opacity-80 hover:opacity-100 transition">Events</Link>
                     <Link href="/spons" className="opacity-80 hover:opacity-100 transition">Sponsors</Link>
@@ -54,7 +54,7 @@ export default function Navbar() {
             {/* Mobile Menu */}
             {isMenuOpen && (
                 <div className="md:hidden absolute top-full left-4 right-4 mt-2 rounded-2xl bg-black/30 backdrop-blur-xl border border-white/10 shadow-lg animate-in slide-in-from-top-2 duration-300 text-white font-bold">
-                    <div className="p-6 space-y-4 font-orbitron text-sm uppercase">
+                    <div className="p-6 space-y-4 state-wide text-xs uppercase">
                         <Link href="/" className="block py-2 opacity-80 hover:opacity-100 transition" onClick={closeMenu}>Home</Link>
                         <Link href="/events" className="block py-2 opacity-80 hover:opacity-100 transition" onClick={closeMenu}>Events</Link>
                         <Link href="/spons" className="block py-2 opacity-80 hover:opacity-100 transition" onClick={closeMenu}>Sponsors</Link>

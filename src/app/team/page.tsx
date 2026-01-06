@@ -1,104 +1,161 @@
 "use client";
-import React, { useEffect, useRef } from "react";
-import { OrgChart } from "./d3-org-chart";
-import { teamData } from "./teamData";
+import React, { useMemo } from "react";
+import { teamData, TeamMember } from "./teamData";
 import "./teams.css";
 
-interface D3Node {  // optional for typing
-    data: {
-        name: string;
-        title: string;
-        image?: string;
-        linkedin?: string;
-        x?: string;
-        [key: string]: any;
-    };
+interface TeamNode extends TeamMember {
+  children: TeamNode[];
 }
 
+// Build tree from flat data
+const buildTeamTree = (data: TeamMember[]): TeamNode[] => {
+  const map: { [key: string]: TeamNode } = {};
+
+  // Initialize map
+  data.forEach((item) => {
+    map[item.id] = { ...item, children: [] };
+  });
+
+  const roots: TeamNode[] = [];
+
+  // Connect children to parents
+  data.forEach((item) => {
+    if (item.parentId === null) {
+      roots.push(map[item.id]);
+    } else if (map[item.parentId]) {
+      map[item.parentId].children.push(map[item.id]);
+    }
+  });
+
+  return roots;
+};
+
+// Component to render a single card
+const MemberCard = ({ member }: { member: TeamNode }) => {
+  return (
+    <div className="node-card-wrapper">
+      <div className="node-card-border"></div>
+      <div className="node-card-content">
+
+        <div className="node-image-container">
+          {member.image && member.image !== "#" ? (
+            <img className="node-image" src={member.image} alt={member.name} />
+          ) : (
+            <img
+              className="node-image"
+              src={`https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=000&color=fff&size=512&font-size=0.35&length=2&bold=true`}
+              alt={member.name}
+            />
+          )}
+          {/* Overlay for readability at bottom of image area */}
+          <div className="node-image-overlay"></div>
+        </div>
+
+        <div className="node-info">
+          <div className="node-name">{member.name}</div>
+          <div className="node-title">{member.title}</div>
+        </div>
+
+        <div className="node-social-links">
+          {member.linkedin && member.linkedin !== "#" && (
+            <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+              <img src="/images/linkedin.svg" alt="LinkedIn" className="social-icon" />
+            </a>
+          )}
+          {member.x && member.x !== "#" && (
+            <a href={member.x} target="_blank" rel="noopener noreferrer">
+              <img src="/images/twitter.svg" alt="X" className="social-icon" />
+            </a>
+          )}
+        </div>
+
+      </div>
+    </div>
+  );
+};
+
+// Recursive component to render sections
+const TeamSection = ({ node, level = 0 }: { node: TeamNode; level?: number }) => {
+  // Separate children into groups (nodes that have children or are purely structural) and members (leaf nodes)
+  // Heuristic: If it has children, it's a group. If it has no children, it's a member.
+  // HOWEVER, some "Members" might be leaf nodes in the data but not structurally "people" if data is missing.
+  // But typically in this dataset, people are leaves.
+  // Exception: "Tech Team" has children, but is also a group.
+
+  // Let's iterate and separate.
+  // But wait, "Coordinators" group has children (Hospitality, etc) and "Hospitality" has children (People).
+  // We want to render:
+  // Heading: Node Name
+  // Grid of direct people children
+  // Sub-sections of group children
+
+  const { members, groups } = useMemo(() => {
+    const members: TeamNode[] = [];
+    const groups: TeamNode[] = [];
+
+    node.children.forEach(child => {
+      // Check if child is a "person" or a "subgroup"
+      // In teamData, people usually don't have children. 
+      // Groups like "Hospitality" have children.
+      // But "Celesta-Team" has "Fest Convenors" (Group).
+      if (child.children.length > 0) {
+        groups.push(child);
+      } else {
+        // It has no children. It might be a person.
+        // Or empty group. Assuming person for now based on data.
+        members.push(child);
+      }
+    });
+    return { members, groups };
+  }, [node]);
+
+  // Don't render the root container title "Team Celesta" if we want to be clean, 
+  // currently the page has "Our Team" h1. 
+  // But purely recursive is fine.
+
+  if (level === 0 && node.id === "Celesta-Team") {
+    // Just render children for root to avoid double title
+    return (
+      <div className="w-full">
+        {members.length > 0 && (
+          <div className="members-grid mb-16">
+            {members.map(member => <MemberCard key={member.id} member={member} />)}
+          </div>
+        )}
+        {groups.map(group => <TeamSection key={group.id} node={group} level={level + 1} />)}
+      </div>
+    );
+  }
+
+  const isTechSection = node.id === "tech";
+
+  return (
+    <div className={`team-section ${isTechSection ? "tech-section-wrapper" : ""}`}>
+      <h2 className="team-section-title">{node.name}</h2>
+
+      {/* If it's the tech section, maybe add a subtitle or decoration? */}
+
+      {members.length > 0 && (
+        <div className="members-grid">
+          {members.map(member => (
+            <MemberCard key={member.id} member={member} />
+          ))}
+        </div>
+      )}
+
+      {groups.length > 0 && (
+        <div className="mt-8">
+          {groups.map(group => (
+            <TeamSection key={group.id} node={group} level={level + 1} />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
 export default function TeamsPage() {
-  const chartRef = useRef<HTMLDivElement | null>(null);
-  const chartInstanceRef = useRef<OrgChart | null>(null);
-
-  useEffect(() => {
-    if (!chartRef.current || chartInstanceRef.current) {
-      return;
-    }
-    const parvChart = new (OrgChart as any)();
-    chartInstanceRef.current = parvChart;
-
-    parvChart
-      .container(chartRef.current)
-      .data(teamData)
-      .nodeWidth(() => 250)
-      .nodeHeight(() => 170)
-      .childrenMargin(() => 80)
-      .compactMarginBetween(() => 60)
-      .initialExpandLevel(1)
-      .onNodeClick((nodeId: string) => {
-        chartInstanceRef.current?.setExpanded(nodeId).render();
-      })
-      .nodeContent((d3Node: D3Node) => {
-        const item = d3Node.data;
-        const socialLinksInitialStyles = `
-          opacity: 0; 
-          transform: translateY(10px); 
-          transition: opacity 0.3s ease-out, transform 0.3s ease-out;
-        `;
-        const cardEventHandlers = `
-          onmouseover="this.querySelector('.node-social-links').style.opacity = 1; this.querySelector('.node-social-links').style.transform = 'translateY(0)';"
-          onmouseout="this.querySelector('.node-social-links').style.opacity = 0; this.querySelector('.node-social-links').style.transform = 'translateY(10px)';"
-        `;
-        const socialLinks = `
-          <div class="node-social-links" style="${socialLinksInitialStyles}">
-            ${item.linkedin ? `
-              <a href="${item.linkedin}" target="_blank" rel="noopener noreferrer">
-                <img src="/images/linkedin.svg" alt="LinkedIn" class="social-icon" />
-              </a>` : ''}
-            ${item.x ? `
-              <a href="${item.x}" target="_blank" rel="noopener noreferrer">
-                <img src="/images/twitter.svg" alt="X" class="social-icon" />
-              </a>` : ''}
-          </div>
-        `;
-
-        if (item.image) {
-          return `
-            <div class="node-card" ${cardEventHandlers}>
-              <div class="node-card-glow"></div>
-              <img class="node-avatar" src="${item.image}" alt="${item.name}" />
-              <div class="node-info">
-                <div class="node-name">${item.name}</div>
-                <div class="node-title">${item.title}</div>
-              </div>
-              ${socialLinks}
-            </div>
-          `;
-        }
-        return `
-          <div class="node-card is-group" ${cardEventHandlers}>
-            <div class="node-card-glow"></div>
-            <div class="node-info">
-              <div class="node-name">${item.name}</div>
-              <div class="node-title">${item.title}</div>
-            </div>
-            ${socialLinks}
-          </div>
-        `;
-      })
-      .render();
-
-    const svgElement = chartRef.current?.querySelector('svg');
-    if (svgElement && !svgElement.querySelector('#line-gradient')) {
-      const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
-      defs.innerHTML = `
-        <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" style="stop-color:#007bff;stop-opacity:1" />
-          <stop offset="100%" style="stop-color:#00d4ff;stop-opacity:1" />
-        </linearGradient>
-      `;
-      svgElement.prepend(defs);
-    }
-  }, []);
+  const rootNodes = useMemo(() => buildTeamTree(teamData), []);
 
   return (
     <main className="teams-page relative min-h-screen">
@@ -119,9 +176,13 @@ export default function TeamsPage() {
           </svg>
         </div>
       </div>
-      <div className="relative z-20">
-        <h1 className="teams-title">Our Team</h1>
-        <div ref={chartRef} className="teams-chart" />
+
+      <div className="relative z-20 container mx-auto px-4">
+        <h1 className="race font-bold text-5xl md:text-7xl text-center mb-12 mt-[15vh] bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 w-full uppercase">TEAM</h1>
+
+        {rootNodes.map(root => (
+          <TeamSection key={root.id} node={root} />
+        ))}
       </div>
     </main>
   );

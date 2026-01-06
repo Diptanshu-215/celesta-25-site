@@ -94,7 +94,7 @@ const HeroParallax = ({ products }: { products: Product[] }) => {
     return (
         <>
             <div className="fixed inset-0 z-0">
-                <img src="/images/events-backdrop.png" alt="Background" className="w-full h-full object-cover opacity-75"/>
+                <img src="/images/events-backdrop.png" alt="Background" className="w-full h-full object-cover opacity-75" />
             </div>
             <div
                 ref={ref}
@@ -217,11 +217,11 @@ const HeroParallax = ({ products }: { products: Product[] }) => {
 const Header = () => {
     return (
         <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0">
-            <h1 className="text-2xl md:text-7xl font-bold text-white">
+            <h1 className="text-2xl md:text-7xl font-bold text-white race">
                 The Ultimate <br /> Celesta's Gallery
             </h1>
             <p className="max-w-2xl text-base md:text-xl mt-8 text-neutral-200">
-                Welcome to the World of Celesta Candid and Peak Moments.
+                Immortalizing the Euphoria: A Visual Odyssey of Celesta.
             </p>
         </div>
     );
@@ -273,9 +273,6 @@ export default function SurrealGallery() {
     return (
         <div className="bg-black text-white">
             <HeroParallax products={products} />
-            <div className="max-w-7xl mx-auto py-20 px-4">
-                <h2 className="text-4xl font-bold mb-4">When Echo Failed the Hyperlux Prevails :- Parv Agarwal</h2>
-            </div>
         </div>
     );
 }

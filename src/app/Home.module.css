@@ -1,5 +1,4 @@
-
-.background{
+.background {
   min-height: 100vh;
   background-image: url('/images/backdrop.png');
   background-size: cover;
@@ -7,7 +6,8 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-.background2{
+
+.background2 {
   min-height: 100vh;
   background-image: url('/images/home-backdrop.png');
   background-size: cover;
@@ -17,8 +17,8 @@
 }
 
 .card {
-  background: linear-gradient(180deg, rgba(10,18,28,0.6), rgba(5,8,12,0.6));
-  border: 2px solid rgba(20,160,255,0.12);
+  background: linear-gradient(180deg, rgba(10, 18, 28, 0.6), rgba(5, 8, 12, 0.6));
+  border: 2px solid rgba(20, 160, 255, 0.12);
   padding: 0;
   border-radius: 8px;
   overflow: hidden;
@@ -31,17 +31,62 @@
   left: 12px;
   right: 12px;
   padding: 8px;
-  background: linear-gradient(90deg, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
-  border-left: 3px solid rgba(20,160,255,0.35);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
+  border-left: 3px solid rgba(20, 160, 255, 0.35);
   color: #fff;
 }
 
+/* TECHY VIDEO BOX FRAME */
 .glimpseFrame {
   max-width: 900px;
-  border: 3px solid rgba(20,160,255,0.18);
-  padding: 18px;
-  border-radius: 8px;
-  background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
+  background: rgba(10, 10, 20, 0.6);
+  border: 1px solid rgba(0, 224, 255, 0.3);
+  padding: 10px;
+  /* Reduced inner padding for cleaner video look */
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  overflow: hidden;
+  /* Ensures child elements don't spill out */
+}
+
+/* Corner Accents using pseudo-elements on the FRAME */
+.glimpseFrame::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-top: 3px solid #00e0ff;
+  border-left: 3px solid #00e0ff;
+  border-top-left-radius: 10px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.glimpseFrame::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border-bottom: 3px solid #00e0ff;
+  border-right: 3px solid #00e0ff;
+  border-bottom-right-radius: 10px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Optional: Scanline effect or grid background inside the frame border area? */
+.glimpseFrame {
+  background-image:
+    linear-gradient(rgba(0, 224, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 224, 255, 0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
 }
 
 /* tweak for reveal-section if you want slightly later reveal */

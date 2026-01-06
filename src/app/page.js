@@ -199,7 +199,7 @@ export default function Home() {
 
       {/* Performers Section */}
       <div className={`flex flex-col ${styles.background2} w-full`}>
-        <h1 className="text-white font-bold text-6xl sm:text-5xl text-center my-20 reveal-section">
+        <h1 className="text-white font-bold text-6xl sm:text-5xl text-center my-20 reveal-section state-wide">
           Past Performers
         </h1>
         <div className="w-full">
@@ -229,13 +229,12 @@ export default function Home() {
 
               {/* Artist Name */}
               <div
-                className={`absolute inset-0 flex items-center z-20 px-4 sm:px-10 md:px-20 justify-${
-                  idx % 2 === 0 ? "start" : "end"
-                }`}
+                className={`absolute inset-0 flex items-center z-20 px-4 sm:px-10 md:px-20 justify-${idx % 2 === 0 ? "start" : "end"
+                  }`}
               >
                 <h2
                   id={`performer-name-${idx}`}
-                  className="text-white font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-wider uppercase drop-shadow-2xl break-words"
+                  className="text-white font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-wider uppercase drop-shadow-2xl break-words state-wide"
                 >
                   {performer.name}
                 </h2>
@@ -247,7 +246,7 @@ export default function Home() {
 
       <div className={`w-full ${styles.background2} py-16 px-4 md:px-20`}>
         <section className="max-w-7xl mx-auto mb-16 reveal-section">
-          <h2 className="text-white text-4xl uppercase text-center mb-8">
+          <h2 className="text-white text-4xl uppercase text-center mb-8 state-wide">
             Events
           </h2>
 
@@ -268,7 +267,10 @@ export default function Home() {
                 slidesPerView: 3,
               },
             }}
-            className="px-4"
+            className="px-4 events-swiper"
+            centeredSlides={true}
+            loop={true}
+            grabCursor={true}
           >
             {events.map((event, idx) => (
               <SwiperSlide key={idx}>
@@ -284,7 +286,7 @@ export default function Home() {
         </section>
 
         <section className="max-w-7xl mx-auto mb-16 reveal-section text-center">
-          <h2 className="text-white text-4xl uppercase mb-8">
+          <h2 className="text-white text-4xl uppercase mb-8 state-wide">
             Official Merchandise
           </h2>
           <div className="flex justify-center items-center gap-6">
@@ -313,7 +315,7 @@ export default function Home() {
         </section>
 
         <section className="max-w-7xl mx-auto mb-16 reveal-section">
-          <h2 className="text-white text-4xl uppercase mb-6 text-center">
+          <h2 className="text-white text-4xl uppercase mb-6 text-center state-wide">
             CELESTA: Glimpse
           </h2>
 
