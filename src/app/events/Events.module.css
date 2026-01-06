@@ -1,9 +1,161 @@
-
-.background{
+.background {
   min-height: 100vh;
   background-image: url('/images/auth-backdrop.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+
+/* === CYBER CARD DESIGN (Adapted for Events) === */
+
+/* Wrapper for the card structure */
+.eventCardWrapper {
+  position: relative;
+  width: 320px;
+  height: 450px;
+  filter: drop-shadow(0 0 5px rgba(0, 224, 255, 0.4));
+  transition: all 0.3s ease;
+}
+
+.eventCardWrapper:hover {
+  filter: drop-shadow(0 0 15px rgba(0, 224, 255, 0.8));
+  transform: translateY(-5px);
+}
+
+/* Border Layer */
+.eventCardBorder {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #00e0ff 0%, #222 30%, #222 70%, #007bff 100%);
+  clip-path: polygon(30px 0, 100% 0,
+      100% calc(100% - 30px),
+      calc(100% - 30px) 100%,
+      0 100%,
+      0 30px);
+  padding: 2px;
+}
+
+/* Content Container */
+.eventCardContent {
+  width: 100%;
+  height: 100%;
+  background: #111;
+  clip-path: polygon(30px 0, 100% 0,
+      100% calc(100% - 30px),
+      calc(100% - 30px) 100%,
+      0 100%,
+      0 30px);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Top Left Blue Decor */
+.eventCardContent::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #00e0ff 0%, transparent 40%);
+  z-index: 2;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+/* Bottom Right Blue Decor */
+.eventCardContent::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100px;
+  height: 80px;
+  background: linear-gradient(135deg, transparent 40%, #00e0ff 100%);
+  z-index: 2;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+/* Image Container */
+.eventImageContainer {
+  width: 100%;
+  height: 65%;
+  /* Adjust height */
+  position: relative;
+  overflow: hidden;
+}
+
+.eventImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.eventCardWrapper:hover .eventImage {
+  transform: scale(1.05);
+}
+
+.eventImageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(17, 17, 17, 0.9) 90%, #111 100%);
+  z-index: 1;
+}
+
+/* Text Info */
+.eventInfo {
+  position: absolute;
+  bottom: 80px;
+  /* Moved up to make room for button */
+  left: 20px;
+  right: 20px;
+  z-index: 10;
+  text-align: left;
+}
+
+.eventName {
+  font-family: sans-serif;
+  font-size: 1.4rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #fff;
+  line-height: 1;
+  text-shadow: 2px 2px 0px rgba(0, 224, 255, 0.5);
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+/* Register Button Area */
+.registerButtonContainer {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+  z-index: 20;
+}
+
+.registerButton {
+  background: rgba(0, 224, 255, 0.2);
+  border: 1px solid #00e0ff;
+  color: #fff;
+  padding: 8px 16px;
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.registerButton:hover {
+  background: #00e0ff;
+  box-shadow: 0 0 15px rgba(0, 224, 255, 0.6);
+  transform: translateY(-2px);
 }

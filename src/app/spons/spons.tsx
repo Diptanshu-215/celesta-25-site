@@ -267,10 +267,10 @@ export default function SponsorsPage() {
             </div>
             <div className="container mx-auto px-4 py-24 relative z-10 flex flex-col items-center">
                 <motion.h1
-                    className="text-5xl md:text-7xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400"
+                    className="text-5xl md:text-7xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 race uppercase"
                     initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
                 >
-                    Our Valued Previous Sponsors
+                    SPONSORS
                 </motion.h1>
                 <motion.p
                     className="text-lg text-center text-gray-400 mb-12 max-w-2xl"
@@ -295,51 +295,51 @@ export default function SponsorsPage() {
                         >
                             <path d="m15 18-6-6 6-6" />
                         </svg>
-                        </button>
+                    </button>
 
 
-                        <div className="relative w-[90vw] overflow-hidden h-[700px] sm:h-[550px] md:h-[500px] lg:h-[600px]">
-                            <AnimatePresence initial={false} custom={direction}>
-                                <motion.div
-                                    key={page}
-                                    custom={direction}
-                                    variants={carouselVariants}
-                                    initial="enter"
-                                    animate="center"
-                                    exit="exit"
-                                    transition={{ x: { type: 'spring', stiffness: 300, damping: 30 }, opacity: { duration: 0.2 } }}
-                                    className="absolute inset-0 grid gap-4 p-4 md:p-6 lg:px-8"
-                                    style={{
-                                        gridTemplateColumns: `repeat(${cols}, 1fr)`,
-                                        gridAutoRows: `${rowHeight}px`,
-                                        height: '100%',
+                    <div className="relative w-[90vw] overflow-hidden h-[700px] sm:h-[550px] md:h-[500px] lg:h-[600px]">
+                        <AnimatePresence initial={false} custom={direction}>
+                            <motion.div
+                                key={page}
+                                custom={direction}
+                                variants={carouselVariants}
+                                initial="enter"
+                                animate="center"
+                                exit="exit"
+                                transition={{ x: { type: 'spring', stiffness: 300, damping: 30 }, opacity: { duration: 0.2 } }}
+                                className="absolute inset-0 grid gap-4 p-4 md:p-6 lg:px-8"
+                                style={{
+                                    gridTemplateColumns: `repeat(${cols}, 1fr)`,
+                                    gridAutoRows: `${rowHeight}px`,
+                                    height: '100%',
 
-                                    }}
-                                >
-                                    {visibleSponsors.map((sponsor) => (
-                                        <div
-                                            key={sponsor.name}
-                                            className="w-full h-full flex items-center justify-center"
-                                        >
-                                            <SponsorCard sponsor={sponsor} />
-                                        </div>
-                                    ))}
-                                </motion.div>
-                            </AnimatePresence>
-                        </div>
-
-                        {/* Right Arrow */}
-                        <button
-                            onClick={() => paginate(1)}
-                            className="absolute right-2 md:right-4 z-20 p-3 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 transition-colors"
-                            style={{ top: "50%", transform: "translateY(-50%)" }}
-                        >
-                            <svg
-                                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                                }}
                             >
-                                <path d="m9 18 6-6-6-6" />
-                            </svg>
-                        </button>
+                                {visibleSponsors.map((sponsor) => (
+                                    <div
+                                        key={sponsor.name}
+                                        className="w-full h-full flex items-center justify-center"
+                                    >
+                                        <SponsorCard sponsor={sponsor} />
+                                    </div>
+                                ))}
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
+
+                    {/* Right Arrow */}
+                    <button
+                        onClick={() => paginate(1)}
+                        className="absolute right-2 md:right-4 z-20 p-3 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 transition-colors"
+                        style={{ top: "50%", transform: "translateY(-50%)" }}
+                    >
+                        <svg
+                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                        >
+                            <path d="m9 18 6-6-6-6" />
+                        </svg>
+                    </button>
                 </div>
                 <div className="mt-8 flex justify-center">
                     <button onClick={handleLogoClick} className="relative w-16 h-16 flex items-center justify-center">

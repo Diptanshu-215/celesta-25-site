@@ -1,147 +1,273 @@
 /* === TEAMS PAGE BASE === */
-.teams-page,
-.teams-chart {
+.teams-page {
   background-color: transparent;
+  min-height: 100vh;
+  padding-bottom: 4rem;
 }
 
 .teams-title {
   color: white;
   text-align: center;
-  padding-top: 2rem;
-  font-size: 2.5rem;
-  font-weight: bold;
+  padding-top: 6rem;
+  padding-bottom: 3rem;
+  font-size: 3.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.6) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 12px rgba(0, 224, 255, 0.3);
 }
 
-/* === NODE CARD === */
-.node-card {
-  position: relative;
-  text-align: center;
-  padding: 50px 20px 25px 20px;
-  border-radius: 16px;
+/* === SECTIONS === */
+.team-section {
+  margin-bottom: 4rem;
   width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.05); /* transparent glassy feel */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  overflow: visible; /* ✅ show avatar */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-  z-index: 0;
 }
 
-/* === GLOWING BORDER ONLY (NOT TILE BACKGROUND) === */
-.node-card::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  border-radius: 18px;
-  background: linear-gradient(90deg, #00e0ff, #00ff85, #007bff, #00e0ff);
-  background-size: 400%;
-  animation: spinBorder 6s linear infinite;
-  z-index: -1; /* ✅ behind card */
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  padding: 2px;
-}
-
-@keyframes spinBorder {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 400% 50%; }
-}
-
-/* === HOVER EFFECT === */
-.node-card:hover {
-  box-shadow: 0 6px 25px rgba(0, 255, 255, 0.3);
-  transform: translateY(-3px);
-}
-
-/* === AVATAR (VISIBLE, NOT CUT OFF) === */
-.node-avatar {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  border: 3px solid rgba(255, 255, 255, 0.7);
-  background-color: #fff;
-  object-fit: cover;
-  position: absolute;
-  top: -40px;
+.team-section-title {
+  text-align: center;
+  color: #fff;
+  font-family: 'State Wide', sans-serif;
+  /* Techy font */
+  font-size: 3rem;
+  /* Increased size from 2rem */
+  font-weight: 700;
+  margin-bottom: 3.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  display: inline-block;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 2; /* ✅ above glowing border */
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 0 10px rgba(0, 224, 255, 0.5);
+  /* Add glow for tech effect */
 }
 
-/* === INFO === */
-.node-info {
-  margin-top: 15px;
+.team-section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #ff0055, #ff0055);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 300px));
+  gap: 3rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  justify-content: center;
+}
+
+/* === CYBER CARD DESIGN === */
+
+/* Wrapper handles the border/outline effect since clip-path cuts borders */
+.node-card-wrapper {
   position: relative;
+  width: 100%;
+  height: 400px;
+  /* Fixed height for consistent look */
+  filter: drop-shadow(0 0 5px rgba(255, 0, 85, 0.4));
+  transition: all 0.3s ease;
+  margin: 0 auto;
+  /* Ensure wrapper also has shape? No, usually rect is fine with drop-shadow on child. 
+     But to get a sharp border, we use a slightly larger background behind the content.
+  */
+}
+
+.node-card-wrapper:hover {
+  filter: drop-shadow(0 0 15px rgba(255, 0, 85, 0.8));
+  transform: translateY(-5px);
+}
+
+/* The card border/bg */
+.node-card-border {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #ff0055 0%, #222 30%, #222 70%, #ca0043 100%);
+  clip-path: polygon(30px 0, 100% 0,
+      100% calc(100% - 30px),
+      calc(100% - 30px) 100%,
+      0 100%,
+      0 30px);
+  padding: 2px;
+  /* Border thickness */
+}
+
+/* The inner content area */
+.node-card-content {
+  width: 100%;
+  height: 100%;
+  background: #111;
+  clip-path: polygon(30px 0, 100% 0,
+      100% calc(100% - 30px),
+      calc(100% - 30px) 100%,
+      0 100%,
+      0 30px);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Decor: Top Left Pink Strip / Triangle */
+.node-card-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #ff0055 0%, transparent 40%);
   z-index: 2;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+/* Decor: Bottom Right Pink Strip */
+.node-card-content::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100px;
+  height: 80px;
+  background: linear-gradient(135deg, transparent 40%, #ff0055 100%);
+  z-index: 2;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+/* === IMAGE === */
+.node-image-container {
+  width: 100%;
+  height: 75%;
+  /* Large image area */
+  position: relative;
+  overflow: hidden;
+}
+
+.node-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.5s ease;
+}
+
+.node-card-wrapper:hover .node-image {
+  transform: scale(1.05);
+}
+
+.node-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(17, 17, 17, 0.9) 90%, #111 100%);
+  z-index: 1;
+}
+
+/* === TEXT INFO === */
+.node-info {
+  position: absolute;
+  bottom: 25px;
+  left: 20px;
+  right: 20px;
+  z-index: 10;
+  text-align: left;
 }
 
 .node-name {
-  font-size: 18px;
-  font-weight: 700;
-  color: #ffffff;
+  font-family: sans-serif;
+  font-size: 1.4rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #fff;
+  line-height: 1;
+  text-shadow: 2px 2px 0px rgba(255, 0, 85, 0.5);
+  margin-bottom: 8px;
+  letter-spacing: 1px;
 }
 
 .node-title {
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  border-left: 3px solid #ff0055;
+  padding-left: 10px;
+  display: inline-block;
 }
 
-/* === SOCIAL ICONS (LOCAL SVG) === */
+/* === SOCIAL ICONS === */
 .node-social-links {
-  margin-top: 12px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
   display: flex;
-  justify-content: center;
-  gap: 14px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 3;
-  position: relative;
-}
-
-.node-card:hover .node-social-links {
-  opacity: 1;
-  transform: translateY(-4px);
-}
-
-.node-social-links {
-  transform: translateY(6px);
-  transition: all 0.35s ease;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 20;
 }
 
 .social-icon {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(0 0 2px #000);
   opacity: 0.8;
-  transition: opacity 0.3s ease, transform 0.3s ease, filter 0.4s ease;
-  filter: drop-shadow(0 0 4px rgba(0, 255, 255, 0.5));
+  transition: all 0.2s;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  padding: 2px;
 }
 
 .social-icon:hover {
+  transform: scale(1.2);
   opacity: 1;
-  transform: scale(1.15);
-  filter: drop-shadow(0 0 6px rgba(0, 255, 255, 0.8));
+  background: rgba(255, 0, 85, 0.8);
 }
 
-/* === LINKS BETWEEN NODES === */
-svg .link {
-  fill: none;
-  stroke: rgba(255, 255, 255, 0.3);
-  stroke-width: 2px;
+/* === TECH SECTION SPECIAL BOX === */
+.tech-section-wrapper {
+  background: rgba(10, 10, 20, 0.6);
+  border: 1px solid rgba(0, 224, 255, 0.3);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  margin: 4rem auto;
+  max-width: 1400px;
+  position: relative;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  overflow: hidden;
 }
 
-svg .exp-coll-button rect {
-  fill: rgba(0, 0, 0, 0.3) !important;
-  stroke: rgba(255, 255, 255, 0.3) !important;
-  rx: 6 !important;
-  ry: 6 !important;
+/* Corner Accents */
+.tech-section-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-top: 3px solid #00e0ff;
+  border-left: 3px solid #00e0ff;
+  border-top-left-radius: 10px;
 }
 
-svg .exp-coll-button text {
-  fill: white !important;
+.tech-section-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border-bottom: 3px solid #00e0ff;
+  border-right: 3px solid #00e0ff;
+  border-bottom-right-radius: 10px;
 }
