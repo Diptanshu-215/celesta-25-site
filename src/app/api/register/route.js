@@ -4,7 +4,7 @@ import { Timestamp } from "firebase-admin/firestore";
 
 export async function POST(request) {
   try {
-    const body = await request.json();
+    const {name, email,dob } = await request.json();
     const authHeader = request.headers.get('Authorization');
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -13,15 +13,23 @@ export async function POST(request) {
     const token = authHeader.split(' ')[1];
     const decodedToken = await adminAuth.verifyIdToken(token)
     const uid = decodedToken.uid;
-    const displayName = decodedToken.displayName || decodedToken.name || "User";
+    // const displayName = decodedToken.displayName || name || "User";
     const db = adminFirestore;
     const userDocRef = db.collection('users').doc(uid);
     const userDoc = await userDocRef.get();
 
+    //generation of celesta id
+    const celestaId = `CEL26-${Math.floor(100000 + Math.random() * 900000)}`;
+    
+
     if (!userDoc.exists) {
       await userDocRef.set({
         role: 'user',
-        displayName: displayName,
+        displayName: name,
+        dob:dob,
+        email:decodedToken.email,
+        celestaId,
+        qrEnabled:false,
         createdAt: Timestamp.now(),
         uid: uid,
       });
