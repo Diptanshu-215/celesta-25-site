@@ -69,6 +69,7 @@ export default function Register() {
       const auth = getAuth();
       const userCredential = await signUpWithEmail(formData.email, formData.password);
       const token = await userCredential.user.getIdToken();
+      
 
       const response = await axios.post(
         "/api/register",
