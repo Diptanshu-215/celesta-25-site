@@ -43,9 +43,10 @@ export default function FloatingNav() {
                     ${isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}
       >
         <nav className="flex flex-col space-y-1">
-          <Link href="/profile" onClick={() => setIsOpen(false)} className="px-4 py-2 text-white rounded-md hover:bg-white/10 transition-colors">
+          {authUser && <Link href="/profile" onClick={() => setIsOpen(false)} className="px-4 py-2 text-white rounded-md hover:bg-white/10 transition-colors">
             Profile
           </Link>
+          }
           <Link href="/contact" onClick={() => setIsOpen(false)} className="px-4 py-2 text-white rounded-md hover:bg-white/10 transition-colors">
             Contact Us
           </Link>
