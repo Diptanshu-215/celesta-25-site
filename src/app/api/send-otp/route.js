@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-const otpStore = new Map(); // email -> otp
 
 export async function POST(req) {
   const { email,otp } = await req.json();
