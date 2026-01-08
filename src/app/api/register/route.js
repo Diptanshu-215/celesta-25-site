@@ -4,7 +4,7 @@ import { Timestamp } from "firebase-admin/firestore";
 
 export async function POST(request) {
   try {
-    const {name, email,dob } = await request.json();
+    const { name, email, dob } = await request.json();
     const authHeader = request.headers.get('Authorization');
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -20,16 +20,20 @@ export async function POST(request) {
 
     //generation of celesta id
     const celestaId = `CEL26-${Math.floor(100000 + Math.random() * 900000)}`;
-    
+
+    const IITP_REGEX = /^[a-zA-Z]+_[0-9]{4}[a-zA-Z]{2}[0-9]{2}@iitp\.ac\.in$/;
+    const qrEnabled = IITP_REGEX.test(decodedToken.email);
+
+
 
     if (!userDoc.exists) {
       await userDocRef.set({
         role: 'user',
         displayName: name,
-        dob:dob,
-        email:decodedToken.email,
+        dob: dob,
+        email: decodedToken.email,
         celestaId,
-        qrEnabled:false,
+        qrEnabled: qrEnabled,
         createdAt: Timestamp.now(),
         uid: uid,
       });

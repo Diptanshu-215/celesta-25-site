@@ -130,7 +130,7 @@ const TeamSection = ({ node, level = 0 }: { node: TeamNode; level?: number }) =>
   const isTechSection = node.id === "tech";
 
   return (
-    <div className={`team-section ${isTechSection ? "tech-section-wrapper" : ""}`}>
+    <div className={`team-section `}>
       <h2 className="team-section-title">{node.name}</h2>
 
       {/* If it's the tech section, maybe add a subtitle or decoration? */}
