@@ -23,7 +23,7 @@ export const teamData: TeamMember[] = [
     { id: "Committees", name: "All Committees", title: "The Performers", parentId: "Celesta-Team" },
 
     // Web & App Dev
-    { id: "tech", name: "Developers", title: "The Tech Virtuosos", parentId: "Celesta-Team" },
+    { id: "tech", name: "Web & App Dev", title: "The Tech Virtuosos", parentId: "Celesta-Team" },
     { id: "naitik", name: "Naitik", title: "Coordinator", parentId: "tech", image: "#", linkedin: "#", x: "#" },
     { id: "diptanshu", name: "Diptanshu Saurav", title: "Coordinator", parentId: "tech", image: "/team-images/Diptanshu.jpg", linkedin: "#", x: "#" },
 
