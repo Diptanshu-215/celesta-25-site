@@ -1,4 +1,10 @@
 /* === TEAMS PAGE BASE === */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 .teams-page {
   background-color: transparent;
   min-height: 100vh;
@@ -31,7 +37,7 @@
   color: #fff;
   font-family: 'State Wide', sans-serif;
   /* Techy font */
-  font-size: 3rem;
+  font-size: 2rem;
   /* Increased size from 2rem */
   font-weight: 700;
   margin-bottom: 3.5rem;
