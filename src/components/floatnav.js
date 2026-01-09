@@ -3,9 +3,11 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useAuth } from "@/context/AuthUserContext";
+import { useRouter } from "next/navigation";
 
 export default function FloatingNav() {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
   const { authUser, loading, signOutUser } = useAuth();
   const menuRef = useRef(null);
   useEffect(() => {
@@ -21,7 +23,7 @@ export default function FloatingNav() {
   }, [menuRef]);
 
   return (
-    <div ref={menuRef} className="fixed top-24 right-4 sm:right-8 z-50 group">
+    <div ref={menuRef} className="fixed top-24 right-4 sm:right-8 z-[60] group">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-20 h-20 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-white
@@ -55,7 +57,10 @@ export default function FloatingNav() {
           </Link>*/}
           {authUser &&
 
-            <button onClick={() => signOutUser()} className="px-4 py-2 text-white rounded-md hover:bg-white/10 transition-colors text-left">
+            <button onClick={async () => {
+              await signOutUser();
+              router.push("/register");
+            }} className="px-4 py-2 text-white rounded-md hover:bg-white/10 transition-colors text-left">
               Log Out
             </button>
           }
