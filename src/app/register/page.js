@@ -194,10 +194,22 @@ export default function Register() {
         onSubmit={handleSubmit}
         className={`w-full max-w-full md:max-w-4xl flex flex-col gap-8 p-4 md:p-10 ${styles.glassCard}`}
       >
-        <div className="mb-4 px-4 py-2 rounded-lg bg-red-500/20 border border-red-400 text-red-300 text-sm md:text-base">
-          ⚠️  <b>IIT Patna students</b> register using their official
-          <b> @iitp.ac.in</b> email address.
-        </div>
+        {!otpSent && (
+          <div className="mb-4 px-4 py-2 rounded-lg bg-red-500/20 border border-red-400 text-red-300 text-sm md:text-base">
+            ⚠️  <b>IIT Patna students</b> register using their official
+            <b> @iitp.ac.in</b> email address.
+          </div>
+        )
+        }
+
+        {
+          otpSent && (
+            <div className="mb-4 px-4 py-2 rounded-lg bg-red-500/20 border border-red-400 text-red-300 text-sm md:text-base">
+              📩 If you haven't received the OTP, please check your 
+              <b> Spam / Junk</b> folder.
+            </div>
+          )
+        }
 
         {!otpSent && (
           <>
