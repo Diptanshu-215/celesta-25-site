@@ -264,10 +264,25 @@ const ProductCard = ({ product, translate, onClick }: ProductCardProps) => {
 
 export default function SurrealGallery() {
     const products: Product[] = [
-        { title: "Enchanted Forest", link: "#", thumbnail: "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=2940&auto=format&fit=crop" },
-        { title: "City of Clouds", link: "#", thumbnail: "https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?q=80&w=2940&auto=format&fit=crop" },
-        { title: "Timeless Sands", link: "#", thumbnail: "https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?q=80&w=2940&auto=format&fit=crop" },
-        { title: "Retro Future", link: "#", thumbnail: "https://images.unsplash.com/photo-1519692933481-e162a57d6721?q=80&w=2940&auto=format&fit=crop" },
+        {title: "", link: "#", thumbnail: "/gallery-images/g1.jpg"},
+        {title: "", link: "#", thumbnail: "/gallery-images/g3-1 (1).jpg"},
+        {title: "", link: "#", thumbnail: "/gallery-images/g3-1 (2).jpg"},
+        {title: "", link: "#", thumbnail: "/gallery-images/g3-1 (3).jpg"},
+        {title: "", link: "#", thumbnail: "/gallery-images/g3-1 (4).jpg"},
+        {title: "", link: "#", thumbnail: "/gallery-images/g3-1 (5).jpg"},
+        {title: "", link: "#", thumbnail: "/gallery-images/g3-1 (6).jpg"},
+        {title: "", link: "#", thumbnail: "/gallery-images/g3-1 (7).jpg"},
+        {title: "", link: "#", thumbnail: "/gallery-images/g3-1 (8).jpg"},
+        {title: "", link: "#", thumbnail: "/gallery-images/g2 (1).jpg"},
+        {title: "", link: "#", thumbnail: "/gallery-images/g2 (2).jpg"},
+        {title: "", link: "#", thumbnail: "/gallery-images/g2 (3).jpg"},
+        {title: "", link: "#", thumbnail: "/gallery-images/g2 (4).jpg"},
+        {title: "", link: "#", thumbnail: "/gallery-images/g2 (5).jpg"},
+        {title: "", link: "#", thumbnail: "/gallery-images/g1 (1).jpg"},
+        {title: "", link: "#", thumbnail: "/gallery-images/g1 (2).jpg"},
+        {title: "", link: "#", thumbnail: "/gallery-images/g1 (3).jpg"},
+        {title: "", link: "#", thumbnail: "/gallery-images/g1 (4).jpg"},
+        {title: "", link: "#", thumbnail: "/gallery-images/g1 (5).jpg"}
     ];
 
     return (
