@@ -1,25 +1,34 @@
 {
   "workshops": [
     {
-      "name": "Mastering Generative AI",
+      "name": "IOT WITH HUMANOID ROBOTICS",
       "img_src": "/images/tech1.jpg",
-      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006"
+      "register_link": "https://tbytes.mojo.page/ciitp"
     },
     {
-      "name": "Drone Technology",
+      "name": "AIOT: When AI meets IoT",
       "img_src": "/images/tech1.jpg",
-      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006"
+      "register_link": "https://tbytes.mojo.page/ciitp"
     },
     {
-      "name": "AI in Film Making",
+      "name": "APP DEVELOPMENT WITH AI",
       "img_src": "/images/tech1.jpg",
-      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006"
+      "register_link": "https://tbytes.mojo.page/ciitp"
     },
     {
-      "name": "Cyber Security with Ethical Hacking",
+      "name": "MASTERING: GENERATIVE AI",
       "img_src": "/images/tech1.jpg",
-      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006"
+      "register_link": "https://tbytes.mojo.page/ciitp"
+    },
+    {
+      "name": "CYBER SECURITY WITH ETHICAL HACKING",
+      "img_src": "/images/tech1.jpg",
+      "register_link": "https://tbytes.mojo.page/ciitp"
+    },
+    {
+      "name": "DRONE TECHNOLOGY",
+      "img_src": "/images/tech1.jpg",
+      "register_link": "https://tbytes.mojo.page/ciitp"
     }
   ]
 }
-

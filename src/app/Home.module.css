@@ -1,6 +1,7 @@
 .background {
   min-height: 100vh;
-  background-image: url('/images/backdrop.png');
+  background-image: linear-gradient(to bottom, transparent 70%, rgba(0, 0, 0, 0.5)),
+    url('/images/backdrop.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -9,11 +10,11 @@
 
 .background2 {
   min-height: 100vh;
-  background-image: url('/images/home-backdrop.png');
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('/images/home-backdrop2.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 
 .card {

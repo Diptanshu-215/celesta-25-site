@@ -19,12 +19,18 @@ export default function Navbar() {
             <nav className="mx-4 flex items-center justify-between rounded-full bg-black/20 p-3 text-white backdrop-blur-xl border border-white/10 shadow-lg">
                 <Link href="/" className="flex items-center gap-3" onClick={closeMenu}>
                     <Image
-                        src="/images/celesta-icon.png"
+                        src="/images/celesta-icon.svg"
                         alt="Celesta Logo"
-                        width={40}
-                        height={40}
+                        width={35}
+                        height={35}
                     />
-                    <span className="font-orbitron text-xl font-bold tracking-wider select-none">CELESTA</span>
+                    <Image
+                        src="/images/typeface-navbar.png"
+                        alt="Celesta"
+                        width={110}
+                        height={35}
+                        className="-translate-y-1"
+                    />
                 </Link>
 
                 {/* Desktop Navigation */}

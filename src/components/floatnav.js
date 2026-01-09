@@ -31,10 +31,10 @@ export default function FloatingNav() {
         aria-label="Toggle navigation menu"
       >
         <Image
-          src="/images/celesta-icon.png"
+          src="/images/celesta-icon.svg"
           alt="Celesta Menu"
-          width={65}
-          height={50}
+          width={45}
+          height={45}
           className={`transition-transform duration-500 ease-in-out ${isOpen ? 'rotate-180' : 'rotate-0'}`}
         />
       </button>
