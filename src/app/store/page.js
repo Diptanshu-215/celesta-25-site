@@ -13,7 +13,7 @@ export default function Store() {
   useEffect(() => {
     async function check() {
       if (!authUser) {
-        router.replace("/login")
+        router.replace("/register")
       }
     }
     check()

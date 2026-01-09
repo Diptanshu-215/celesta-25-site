@@ -61,7 +61,7 @@ export default function Register() {
         );
 
         if (res.data.success) {
-          if (res.data.role === "user") router.replace("/store");
+          if (res.data.role === "user") router.replace("/profile");
           if (res.data.role === "admin") router.replace("/admin");
         }
       } catch { }
@@ -149,7 +149,7 @@ export default function Register() {
       }
 
       toast.success("Registered successfully!");
-      router.push("/login");
+      router.push("/profile");
     } catch {
       toast.error("Registration failed");
     } finally {

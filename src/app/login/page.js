@@ -30,7 +30,7 @@ export default function LogIn() {
             headers: { 'Authorization': `Bearer ${token}` }
           });
           if (response.data.success) {
-            if (response.data.role == 'user') router.replace("/store");
+            if (response.data.role == 'user') router.replace("/profile");
             if (response.data.role == 'admin') router.replace("/admin");
           }
           return true;
@@ -64,7 +64,7 @@ export default function LogIn() {
 
       if (response.data.success) {
         toast.success("Login successfully!");
-        router.push("/store");
+        router.push("/profile");
       } else {
         toast.error(response.data.message || "Login failed");
       }
