@@ -1,18 +1,21 @@
-import Image from "next/image";
-import Link from "next/link";
-import styles from './Events.module.css';
+"use client";
 
-export default function EventCard({ name, img_src, register_link }) {
+import Image from "next/image";
+import styles from "./Events.module.css";
+
+export default function EventCard({ event, onClick }) {
   return (
-    <div className={styles.eventCardWrapper}>
+    <div
+      className={styles.eventCardWrapper}
+      onClick={onClick}
+    >
       <div className={styles.eventCardBorder}></div>
       <div className={styles.eventCardContent}>
 
-        {/* Image Section */}
         <div className={styles.eventImageContainer}>
           <Image
-            src={img_src}
-            alt={name}
+            src={event.img_src}
+            alt={event.name}
             className={styles.eventImage}
             width={500}
             height={300}
@@ -20,16 +23,14 @@ export default function EventCard({ name, img_src, register_link }) {
           <div className={styles.eventImageOverlay}></div>
         </div>
 
-        {/* Info Section */}
         <div className={styles.eventInfo}>
-          <h1 className={styles.eventName}>{name}</h1>
+          <h1 className={styles.eventName}>{event.name}</h1>
         </div>
 
-        {/* Register Button */}
         <div className={styles.registerButtonContainer}>
-          <Link href={register_link} className={styles.registerButton}>
-            Register
-          </Link>
+          <button className={styles.registerButton}>
+            View
+          </button>
         </div>
 
       </div>
