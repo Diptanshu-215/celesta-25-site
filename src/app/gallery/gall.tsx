@@ -19,6 +19,7 @@ const HeroParallax = ({ products }: { products: Product[] }) => {
     const firstRow = products.slice(0, 5);
     const secondRow = products.slice(5, 10);
     const thirdRow = products.slice(10, 15);
+    const fourthRow = products.slice(15, 20);
     const ref = useRef<HTMLDivElement>(null);
 
     const { scrollYProgress } = useScroll({
@@ -49,7 +50,7 @@ const HeroParallax = ({ products }: { products: Product[] }) => {
         springConfig
     );
     const translateY = useSpring(
-        useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
+        useTransform(scrollYProgress, [0, 1], [-100, 100]),
         springConfig
     );
     const [selectedProductIndex, setSelectedProductIndex] = useState<number | null>(null);
@@ -98,7 +99,7 @@ const HeroParallax = ({ products }: { products: Product[] }) => {
             </div>
             <div
                 ref={ref}
-                className="h-[300vh] overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+                className="h-[350vh] overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
             >
                 <div className="absolute inset-0 z-0 opacity-50 [mask-image:radial-gradient(ellipse_at_center,transparent_65%,white_100%)]">
                     <svg className="absolute inset-0 h-full w-full" aria-hidden="true">
@@ -149,12 +150,27 @@ const HeroParallax = ({ products }: { products: Product[] }) => {
                             />
                         ))}
                     </motion.div>
-                    <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
+                    <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
                         {[...thirdRow, ...thirdRow].map((product, index) => (
                             <ProductCard
                                 product={product}
                                 translate={translateX}
                                 key={`third-${index}-${product.title}`}
+                                onClick={() => {
+                                    const originalIndex = products.findIndex(p => p.thumbnail === product.thumbnail && p.title === product.title);
+                                    if (originalIndex !== -1) {
+                                        openModal(originalIndex)
+                                    }
+                                }}
+                            />
+                        ))}
+                    </motion.div>
+                    <motion.div className="flex flex-row space-x-20">
+                        {[...fourthRow, ...fourthRow].map((product, index) => (
+                            <ProductCard
+                                product={product}
+                                translate={translateXReverse}
+                                key={`fourth-${index}-${product.title}`}
                                 onClick={() => {
                                     const originalIndex = products.findIndex(p => p.thumbnail === product.thumbnail && p.title === product.title);
                                     if (originalIndex !== -1) {
@@ -216,7 +232,7 @@ const HeroParallax = ({ products }: { products: Product[] }) => {
 
 const Header = () => {
     return (
-        <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0">
+        <div className="max-w-7xl relative mx-auto pt-32 pb-10 md:pt-48 md:pb-20 px-4 w-full left-0 top-0">
             <h1 className="text-2xl md:text-7xl font-bold text-white race">
                 The Ultimate <br /> Celesta's Gallery
             </h1>
@@ -264,25 +280,26 @@ const ProductCard = ({ product, translate, onClick }: ProductCardProps) => {
 
 export default function SurrealGallery() {
     const products: Product[] = [
-        {title: "", link: "#", thumbnail: "/gallery-images/g1.jpg"},
-        {title: "", link: "#", thumbnail: "/gallery-images/g3-1 (1).jpg"},
-        {title: "", link: "#", thumbnail: "/gallery-images/g3-1 (2).jpg"},
-        {title: "", link: "#", thumbnail: "/gallery-images/g3-1 (3).jpg"},
-        {title: "", link: "#", thumbnail: "/gallery-images/g3-1 (4).jpg"},
-        {title: "", link: "#", thumbnail: "/gallery-images/g3-1 (5).jpg"},
-        {title: "", link: "#", thumbnail: "/gallery-images/g3-1 (6).jpg"},
-        {title: "", link: "#", thumbnail: "/gallery-images/g3-1 (7).jpg"},
-        {title: "", link: "#", thumbnail: "/gallery-images/g3-1 (8).jpg"},
-        {title: "", link: "#", thumbnail: "/gallery-images/g2 (1).jpg"},
-        {title: "", link: "#", thumbnail: "/gallery-images/g2 (2).jpg"},
-        {title: "", link: "#", thumbnail: "/gallery-images/g2 (3).jpg"},
-        {title: "", link: "#", thumbnail: "/gallery-images/g2 (4).jpg"},
-        {title: "", link: "#", thumbnail: "/gallery-images/g2 (5).jpg"},
-        {title: "", link: "#", thumbnail: "/gallery-images/g1 (1).jpg"},
-        {title: "", link: "#", thumbnail: "/gallery-images/g1 (2).jpg"},
-        {title: "", link: "#", thumbnail: "/gallery-images/g1 (3).jpg"},
-        {title: "", link: "#", thumbnail: "/gallery-images/g1 (4).jpg"},
-        {title: "", link: "#", thumbnail: "/gallery-images/g1 (5).jpg"}
+        { title: "", link: "#", thumbnail: "/gallery-images/g1.JPG" },
+        { title: "", link: "#", thumbnail: "/gallery-images/g3-1 (1).JPG" },
+        { title: "", link: "#", thumbnail: "/gallery-images/g3-1 (2).JPG" },
+        { title: "", link: "#", thumbnail: "/gallery-images/g3-1 (3).JPG" },
+        { title: "", link: "#", thumbnail: "/gallery-images/g3-1 (4).JPG" },
+        { title: "", link: "#", thumbnail: "/gallery-images/g3-1 (5).JPG" },
+        { title: "", link: "#", thumbnail: "/gallery-images/g3-1 (6).JPG" },
+        { title: "", link: "#", thumbnail: "/gallery-images/g3-1 (7).JPG" },
+        { title: "", link: "#", thumbnail: "/gallery-images/g3-1 (8).JPG" },
+        { title: "", link: "#", thumbnail: "/gallery-images/g2 (1).JPG" },
+        { title: "", link: "#", thumbnail: "/gallery-images/g2 (2).JPG" },
+        { title: "", link: "#", thumbnail: "/gallery-images/g2 (3).JPG" },
+        { title: "", link: "#", thumbnail: "/gallery-images/g2 (4).JPG" },
+        { title: "", link: "#", thumbnail: "/gallery-images/g2 (5).JPG" },
+        { title: "", link: "#", thumbnail: "/gallery-images/g1 (1).JPG" },
+        { title: "", link: "#", thumbnail: "/gallery-images/g1 (2).JPG" },
+        { title: "", link: "#", thumbnail: "/gallery-images/g1 (3).JPG" },
+        { title: "", link: "#", thumbnail: "/gallery-images/g1 (4).JPG" },
+        { title: "", link: "#", thumbnail: "/gallery-images/g1 (5).JPG" },
+        { title: "", link: "#", thumbnail: "/gallery-images/DSC07335.JPG" }
     ];
 
     return (

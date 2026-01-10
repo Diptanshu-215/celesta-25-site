@@ -4,8 +4,8 @@ import { Instagram, Linkedin } from "lucide-react";
 
 export default function Footer() {
   return (
-    <div className="w-full bg-black text-white px-6 md:px-24 py-8 md:py-16 flex flex-col md:flex-row items-center md:items-center md:justify-between gap-8">
-      
+    <div className="relative z-50 w-full bg-black text-white px-6 md:px-24 py-8 md:py-16 flex flex-col md:flex-row items-center md:items-center md:justify-between gap-8">
+
       {/* Logo */}
       <div className="flex justify-center md:justify-start w-full md:w-auto">
         <Image src="/images/banner-logo.png" alt="banner-logo" width={400} height={600} className="object-contain" />
