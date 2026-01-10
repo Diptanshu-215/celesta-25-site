@@ -36,9 +36,9 @@ export default function Home() {
   const performers = [
     {
       images: [
-        "/images/artists/irfan_1.jpg",
-        "/images/artists/irfan_2.jpg",
-        "/images/artists/irfan_3.jpg",
+        "/images/artists/irfan_1.JPG",
+        "/images/artists/irfan_2.JPG",
+        "/images/artists/irfan_3.JPG",
       ],
       name: "Mohammed Irfan",
     },
@@ -60,11 +60,27 @@ export default function Home() {
     },
     {
       images: [
-        "/images/artists/artist4-1.jpg",
-        "/images/artists/artist4-2.jpg",
-        "/images/artists/artist4-3.jpg",
+        "/images/artists/aaditya_1.webp",
+        "/images/artists/aaditya_2.webp",
+        "/images/artists/aaditya_3.webp",
       ],
       name: "Aaditya Kulshreshth",
+    },
+    {
+      images: [
+        "/images/artists/ravator_1.jpg",
+        "/images/artists/ravator_2.jpg",
+        "/images/artists/ravator_3.jpg",
+      ],
+      name: "Ravator",
+    },
+    {
+      images: [
+        "/images/artists/sartek_1.jpeg",
+        "/images/artists/sartek_2.webp",
+        "/images/artists/sartek_3.jpg",
+      ],
+      name: "Sartek",
     },
   ];
 
