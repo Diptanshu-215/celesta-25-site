@@ -1,18 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import { useCart } from "@/context/CartContext";
-import { toast } from "react-hot-toast";
+import styles from "./EventModal.module.css";
+
 export default function EventModal({ event, onClose }) {
     const [showForm, setShowForm] = useState(false);
 
     return (
-        <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center px-4">
-            <div className="bg-neutral-900 text-white max-w-2xl w-full rounded-xl p-6 relative">
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center px-4">
+            <div className={`text-white max-w-2xl w-full p-6 relative ${styles.glassCard}`}>
 
                 <button
                     onClick={onClose}
-                    className="absolute top-4 right-4 text-xl"
+                    className="absolute top-4 right-4 text-xl hover:text-red-400 transition-colors"
                 >
                     ✕
                 </button>
@@ -22,7 +22,7 @@ export default function EventModal({ event, onClose }) {
                         <img
                             src={event.img_src}
                             alt={event.name}
-                            className="rounded-lg mb-4 w-full max-h-[45vh] object-contain"
+                            className="rounded-lg mb-4 w-full max-h-[45vh] object-contain bg-black/20"
                         />
 
 
@@ -40,21 +40,21 @@ export default function EventModal({ event, onClose }) {
                             <a
                                 href={event.rulebook}
                                 target="_blank"
-                                className="border px-4 py-2 rounded"
+                                className="border border-white/30 px-4 py-2 rounded hover:bg-white/10 transition-colors"
                             >
                                 Rulebook
                             </a>
 
                             <button
                                 onClick={() => setShowForm(true)}
-                                className="bg-white text-black px-4 py-2 rounded"
+                                className={styles.btn}
                             >
                                 Register
                             </button>
                         </div>
                     </>
                 ) : (
-                    <RegisterForm event={event} onClose={onClose}/>
+                    <RegisterForm event={event} onClose={onClose} />
                 )}
             </div>
         </div>
@@ -62,12 +62,13 @@ export default function EventModal({ event, onClose }) {
 }
 
 function RegisterForm({ event, onClose }) {
+
     const [college, setCollege] = useState('');
     const [collegeId, setCollegeId] = useState('');
     const [aadhar, setAadhar] = useState('');
     const [teamName, setTeamName] = useState('');
     const { cart, addToCart, removeFromCart } = useCart();
-     const handleKeyDown = (e) => {
+    const handleKeyDown = (e) => {
        if (e.key === "Enter") e.preventDefault(); 
      };
     const handleSubmit = (e) => {
@@ -96,35 +97,26 @@ function RegisterForm({ event, onClose }) {
                 Register for {event.name}
             </h2>
 
-            <form onSubmit={handleSubmit} onKeyDown={handleKeyDown} className="flex flex-col gap-3">
-        {/*<input placeholder="Name" className="p-2 rounded bg-neutral-800" />*/}
-                <input 
-                    placeholder="College / Organisation" 
-                    className="p-2 rounded bg-neutral-800"
+            <form onSubmit={handleSubmit} onKeyDown={handleKeyDown} className="flex flex-col gap-4">
+        {/*<input placeholder="Name" className="p-3 rounded-lg bg-white/5 border border-white/10 focus:border-teal-400 outline-none text-white placeholder-white/40 transition-colors" />*/}
+                <input placeholder="College / Organisation" className="p-3 rounded-lg bg-white/5 border border-white/10 focus:border-teal-400 outline-none text-white placeholder-white/40 transition-colors"
                     value={college}
                     onChange={(e) => setCollege(e.target.value)}
                 />
-                <input 
-                    placeholder="College ID (if any)" 
-                    className="p-2 rounded bg-neutral-800"
+                <input placeholder="College ID (if any)" className="p-3 rounded-lg bg-white/5 border border-white/10 focus:border-teal-400 outline-none text-white placeholder-white/40 transition-colors"
                     value={collegeId}
                     onChange={(e) => setCollegeId(e.target.value)}
-                />
-                <input 
-                    placeholder="Aadhar Card Number" 
-                    className="p-2 rounded bg-neutral-800"
+                 />
+                <input placeholder="Aadhar Card Number" className="p-3 rounded-lg bg-white/5 border border-white/10 focus:border-teal-400 outline-none text-white placeholder-white/40 transition-colors" 
                     value={aadhar}
                     onChange={(e) => setAadhar(e.target.value)}
-                />
-                <input 
-                    placeholder="Team Name" 
-                    className="p-2 rounded bg-neutral-800"
+                 />
+                <input placeholder="Team Name" className="p-3 rounded-lg bg-white/5 border border-white/10 focus:border-teal-400 outline-none text-white placeholder-white/40 transition-colors" 
                     value={teamName}
                     onChange={(e) => setTeamName(e.target.value)}
                 />
 
-                <button type="submit"
-                  className="bg-white text-black py-2 rounded mt-2">
+                <button type="submit" className={`${styles.btn} mt-4`}>
                     Submit
                 </button>
             </form>

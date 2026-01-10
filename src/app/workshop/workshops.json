@@ -2,32 +2,32 @@
   "workshops": [
     {
       "name": "IOT WITH HUMANOID ROBOTICS",
-      "img_src": "/images/tech1.jpg",
+      "img_src": "/images/workshop-images/iot.png",
       "register_link": "https://tbytes.mojo.page/ciitp"
     },
     {
       "name": "AIOT: When AI meets IoT",
-      "img_src": "/images/tech1.jpg",
+      "img_src": "/images/workshop-images/aiot.png",
       "register_link": "https://tbytes.mojo.page/ciitp"
     },
     {
       "name": "APP DEVELOPMENT WITH AI",
-      "img_src": "/images/tech1.jpg",
+      "img_src": "/images/workshop-images/app-dev.png",
       "register_link": "https://tbytes.mojo.page/ciitp"
     },
     {
       "name": "MASTERING: GENERATIVE AI",
-      "img_src": "/images/tech1.jpg",
+      "img_src": "/images/workshop-images/gen-ai.png",
       "register_link": "https://tbytes.mojo.page/ciitp"
     },
     {
       "name": "CYBER SECURITY WITH ETHICAL HACKING",
-      "img_src": "/images/tech1.jpg",
+      "img_src": "/images/workshop-images/cyber-sec.png",
       "register_link": "https://tbytes.mojo.page/ciitp"
     },
     {
       "name": "DRONE TECHNOLOGY",
-      "img_src": "/images/tech1.jpg",
+      "img_src": "/images/workshop-images/drone-tech.png",
       "register_link": "https://tbytes.mojo.page/ciitp"
     }
   ]
