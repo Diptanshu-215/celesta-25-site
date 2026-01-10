@@ -93,7 +93,6 @@ export const teamData: TeamMember[] = [
     // Workshop
     { id: "workshop", name: "Workshop", title: "The Skill Architects", parentId: "Committees" },
     { id: "abhijat", name: "Abhijat Jha", title: "Coordinator", parentId: "workshop", image: "/team-images/abhijat.jpg", linkedin: "#", x: "#" },
-    { id: "nishant", name: "Nishant Kumar", title: "Coordinator", parentId: "workshop", image: "#", linkedin: "#", x: "#" },
 ];
 
 
@@ -111,6 +110,15 @@ export const developersData: TeamMember[] = [
         image: "/team-images/Diptanshu.jpg",
         linkedin: "https://www.linkedin.com/in/diptanshu-saurav-697495287/",
         x: "https://www.instagram.com/dip.sauravvv_/",
+    },
+    {
+        id: "dev-parv",
+        parentId: null,
+        name: "Parv Agarwal",
+        title: "General Member",
+        image: "/team-images/parv.png",
+        linkedin: "https://www.linkedin.com/in/parvagarwal/",
+        x: "https://www.instagram.com/z.e.r.o01?igsh=b3Zhd3BldmV1YzBv",
     },
     {
         id: "dev-prashant",
