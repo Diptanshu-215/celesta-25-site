@@ -295,14 +295,120 @@ body {
   align-items: center;
   justify-content: center;
   z-index: 100;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+  /* box-shadow: 0 15px 35px rgba(0,0,0,0.4); */
   cursor: pointer;
-  transition: transform 0.25s ease;
+  /* transition: transform 0.25s ease; */
+
+  overflow: hidden; /* IMPORTANT for glow mask */
+
+  --primary: 200 100% 50%;
+  --mouseX: 50%;
+  --mouseY: 50%;
 }
 
 .dev-fab:hover {
   transform: scale(1.05);
 }
+.dev-fab::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2.5px;
+
+  background: conic-gradient(
+    from var(--angle),
+    transparent 0%,
+    transparent 33%,
+    var(--border-color) 50%,
+    transparent 66%
+  );
+
+  animation: rotate 2s linear infinite,
+             borderColorCycle 4s linear infinite;
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  pointer-events: none;
+}
+
+.dev-fab::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: black;
+  z-index: -1;
+  filter: drop-shadow(0 0 6px var(--glow-color));
+  animation: glowColorCycle 4s linear infinite;
+}
+.dev-fab .inner {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    80px circle at var(--mouseX) var(--mouseY),
+    hsl(var(--primary) / 0.35),
+    transparent 55%
+  );
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.dev-fab:hover .inner {
+  opacity: 1;
+}
+
+.dev-icon {
+  font-size: 38px;
+  color: white;
+  z-index: 2;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotate {
+  from { --angle: 0deg; }
+  to   { --angle: 360deg; }
+}
+
+@property --border-color {
+  syntax: "<color>";
+  initial-value: #92EBFF;
+  inherits: false;
+}
+
+@keyframes borderColorCycle {
+  0%   { --border-color: #92EBFF; }
+  25%  { --border-color: #E3F9B3; }
+  50%  { --border-color: #FB7AC3; }
+  75%  { --border-color: #A9AAFF; }
+  100% { --border-color: #92EBFF; }
+}
+
+@property --glow-color {
+  syntax: "<color>";
+  initial-value: #92EBFF;
+  inherits: false;
+}
+
+@keyframes glowColorCycle {
+  0%   { --glow-color: #92EBFF; }
+  25%  { --glow-color: #E3F9B3; }
+  50%  { --glow-color: #FB7AC3; }
+  75%  { --glow-color: #A9AAFF; }
+  100% { --glow-color: #92EBFF; }
+}
+
 
 .dev-icon {
   font-size: 40px;
@@ -368,4 +474,7 @@ body {
     display: none;              
   }
 }
+
+
+/* developer icon  */
 
