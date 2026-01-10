@@ -44,7 +44,7 @@ export const teamData: TeamMember[] = [
     { id: "lohitaksha", name: "Lohitaksha Guha", title: "Coordinator", parentId: "creative", image: "/team-images/lohitaksha.JPG", linkedin: "https://www.linkedin.com/in/lohitaksha-guha-661651298?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app", x: "https://www.instagram.com/lohitaksha._10?igsh=Z2l3M3ozank2MWE0&utm_source=qr" },
     { id: "rishit", name: "Rishit Dutta", title: "Coordinator", parentId: "creative", image: "#", linkedin: "#", x: "#" },
     { id: "jyoti", name: "Jyoti Sikha", title: "Coordinator", parentId: "creative", image: "/team-images/jyoti.jpg", linkedin: "https://www.linkedin.com/in/jyoti-shikha2007/", x: "https://www.instagram.com/jyoti.s.207?igsh=NDF1aGNnanUwcmZ0" },
-    { id: "tanuj", name: "Tanuj Pitta", title: "Coordinator", parentId: "creative", image: "#", linkedin: "https://www.linkedin.com/in/pitta-tanuj-753188280", x: "https://www.instagram.com/tanuj_l8/" },
+    { id: "tanuj", name: "Tanuj Pitta", title: "Coordinator", parentId: "creative", image: "/team-images/tanuj.jpeg", linkedin: "https://www.linkedin.com/in/pitta-tanuj-753188280", x: "https://www.instagram.com/tanuj_l8/" },
     { id: "bhumi", name: "Bhumi Garg", title: "Coordinator", parentId: "creative", image: "/team-images/Bhumi.jpg", linkedin: "#", x: "#" },
 
     // Sponsorship

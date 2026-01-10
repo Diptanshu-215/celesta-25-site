@@ -96,7 +96,8 @@ export default function DevelopersPanel() {
   return (
     <>
       {/* Floating Icon */}
-      <button className="dev-fab" onClick={() => setOpen(true)}>
+      <button className="dev-fab glow-btn" onClick={() => setOpen(true)}>
+        <span className="inner"></span>
         <HiCodeBracket className="dev-icon" />
       </button>
 
