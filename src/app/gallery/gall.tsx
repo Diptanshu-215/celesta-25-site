@@ -27,14 +27,14 @@ const HeroParallax = ({ products }: { products: Product[] }) => {
         offset: ["start start", "end start"],
     });
 
-    const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
+    const springConfig = { stiffness: 100, damping: 20 };
 
     const translateX = useSpring(
-        useTransform(scrollYProgress, [0, 1], [0, 1000]),
+        useTransform(scrollYProgress, [0, 1], [0, 500]),
         springConfig
     );
     const translateXReverse = useSpring(
-        useTransform(scrollYProgress, [0, 1], [0, -1000]),
+        useTransform(scrollYProgress, [0, 1], [0, -500]),
         springConfig
     );
     const rotateX = useSpring(
@@ -42,7 +42,7 @@ const HeroParallax = ({ products }: { products: Product[] }) => {
         springConfig
     );
     const opacity = useSpring(
-        useTransform(scrollYProgress, [0, 0.2], [0.4, 1]),
+        useTransform(scrollYProgress, [0, 0.2], [1, 1]),
         springConfig
     );
     const rotateZ = useSpring(
