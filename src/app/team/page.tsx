@@ -1,11 +1,16 @@
 "use client";
-import React, { useMemo } from "react";
+import React, { useMemo, useState, } from "react";
 import { teamData, TeamMember } from "./teamData";
 import "./teams.css";
+import DevelopersPanel from "./Developers";
+
+
 
 interface TeamNode extends TeamMember {
   children: TeamNode[];
 }
+
+
 
 // Build tree from flat data
 const buildTeamTree = (data: TeamMember[]): TeamNode[] => {
@@ -127,7 +132,6 @@ const TeamSection = ({ node, level = 0 }: { node: TeamNode; level?: number }) =>
     );
   }
 
-  const isTechSection = node.id === "tech";
 
   return (
     <div className={`team-section `}>
@@ -184,6 +188,9 @@ export default function TeamsPage() {
           <TeamSection key={root.id} node={root} />
         ))}
       </div>
+     
+        <DevelopersPanel/>
+
     </main>
   );
 }

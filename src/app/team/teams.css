@@ -277,3 +277,94 @@ body {
   border-right: 3px solid #00e0ff;
   border-bottom-right-radius: 10px;
 }
+
+
+/* developers  */
+.dev-fab {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  width: 80px;
+  height: 80px;
+  border-radius: 9999px;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.dev-fab:hover {
+  transform: scale(1.05);
+}
+
+.dev-icon {
+  font-size: 40px;
+  color: white;
+}
+
+.dev-overlay {
+  position: fixed;
+  inset: 0;
+  background: transparent; 
+  z-index: 120;
+}
+
+
+
+.dev-panel {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  height: 100vh;
+  transform: translateY(50vh);
+
+  background: rgba(10,10,20,0.95);
+  backdrop-filter: blur(20px);
+
+  border-radius: 28px 28px 0 0;
+  padding: 32px 24px 80px;
+  overflow-y: auto;
+
+  transition: transform 0.3s ease;
+}
+
+
+
+.dev-close {
+  position: fixed;
+  top: 16px;
+  right: 20px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  z-index: 130;
+}
+@media (min-width: 1024px) {
+  .dev-panel {
+    top: 0;
+    bottom: 0;
+    left: 0;     
+    right: auto;
+
+    width: 420px;
+    height: 100vh;
+    overflow-y: auto;            
+    scrollbar-width: none;       
+    -ms-overflow-style: none;    
+    transform: translateX(0);
+    border-radius: 0 24px 24px 0;
+
+    box-shadow: 8px 0 30px rgba(0,0,0,0.35);
+  }
+  .dev-panel::-webkit-scrollbar {
+    display: none;              
+  }
+}
+
