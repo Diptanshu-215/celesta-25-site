@@ -64,7 +64,7 @@ const MemberCard = ({ member }: { member: TeamNode }) => {
           )}
           {member.x && member.x !== "#" && (
             <a href={member.x} target="_blank" rel="noopener noreferrer">
-              <img src="/images/twitter.svg" alt="X" className="social-icon" />
+              <img src="/images/instagram.svg" alt="X" className="social-icon" />
             </a>
           )}
         </div>
