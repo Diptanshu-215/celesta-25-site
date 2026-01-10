@@ -1,4 +1,8 @@
 "use client";
+
+import EventCard from "./events/event-card";
+import EventModal from "./events/event-modal";
+
 import Image from "next/image";
 import styles from "./Home.module.css";
 import { ArrowDown, Link } from "lucide-react";
@@ -10,11 +14,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import EventCard from "./events/event-card";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
+  const [selectedEvent, setSelectedEvent] = useState(null);
+
   const events = data["events"];
   const fadeRef = useRef(null);
   const [isMuted, setIsMuted] = useState(true);
@@ -245,6 +250,30 @@ export default function Home() {
       </div>
 
       <div className={`w-full ${styles.background2} py-16 px-4 md:px-20`}>
+        <section className="max-w-5xl mx-auto text-center mb-16">
+
+          {/* Small label */}
+          <h3 className="text-white text-4xl uppercase text-center mb-8 state-wide">
+            Theme
+          </h3>
+
+          {/* Main theme title */}
+          <h2 className="text-white text-4xl md:text-5xl font-extrabold uppercase mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400">
+            Reclaiming the Realms
+          </h2>
+
+          {/* Divider */}
+          <div className="w-24 h-[2px] mx-auto mb-6 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
+
+          {/* Description */}
+          <p className="max-w-3xl mx-auto text-gray-200 text-base md:text-lg leading-relaxed">
+            A call to rise, rediscover, and redefine.
+            <br />
+            Celesta is where lost ideas are reborn, boundaries are shattered, and every
+            participant reclaims their realm — of creativity, innovation, and identity.
+          </p>
+
+        </section>
         <section className="max-w-7xl mx-auto mb-16 reveal-section">
           <h2 className="text-white text-4xl uppercase text-center mb-8 state-wide">
             Events
@@ -260,30 +289,32 @@ export default function Home() {
             }}
             navigation
             breakpoints={{
-              640: {
-                slidesPerView: 2,
-              },
-              1024: {
-                slidesPerView: 3,
-              },
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
             }}
             className="px-4 events-swiper"
-            centeredSlides={true}
-            loop={true}
-            grabCursor={true}
+            centeredSlides
+            loop
+            grabCursor
           >
             {events.map((event, idx) => (
               <SwiperSlide key={idx}>
                 <EventCard
-                  key={idx}
-                  name={event.name}
-                  img_src={event.img_src}
-                  register_link={event.register_link}
+                  event={event}
+                  onClick={() => setSelectedEvent(event)}
                 />
               </SwiperSlide>
             ))}
           </Swiper>
+
+          {selectedEvent && (
+            <EventModal
+              event={selectedEvent}
+              onClose={() => setSelectedEvent(null)}
+            />
+          )}
         </section>
+
 
         <section className="max-w-7xl mx-auto mb-16 reveal-section text-center">
           <h2 className="text-white text-4xl uppercase mb-8 state-wide">
@@ -360,14 +391,7 @@ export default function Home() {
             </button>
           </div>
 
-          <h3 className="text-white text-3xl uppercase text-center mb-4">
-            Theme
-          </h3>
-          <p className="max-w-3xl mx-auto text-gray-200 text-sm leading-relaxed text-center">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s...
-          </p>
+
         </section>
       </div>
     </div>
