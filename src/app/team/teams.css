@@ -61,23 +61,36 @@ body {
   border-radius: 2px;
 }
 
-.members-grid {
+/* .members-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 300px));
+  grid-template-columns: repeat(auto-fit,  minmax(280px,300px);
   gap: 3rem;
   max-width: 1300px;
   margin: 0 auto;
   padding: 0 1.5rem;
   justify-content: center;
-  justify-items: center;
+} */
+
+.members-grid {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 1.7rem;
+
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+
+  justify-content: center; /* ⭐ THIS IS THE MAGIC */
 }
+
 
 /* === CYBER CARD DESIGN === */
 
 /* Wrapper handles the border/outline effect since clip-path cuts borders */
 .node-card-wrapper {
   position: relative;
-  width: 100%;
+  width: 300px; /* earlier 100%*/
   height: 400px;
   /* Fixed height for consistent look */
   filter: drop-shadow(0 0 5px rgba(255, 0, 85, 0.4));
