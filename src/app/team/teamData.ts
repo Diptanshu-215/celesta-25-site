@@ -28,7 +28,7 @@ export const teamData: TeamMember[] = [
     { id: "Committees", name: "All Committees", title: "The Performers", parentId: "Celesta-Team" },
 
     // Web & App Dev
-    { id: "tech", name: "Web & App Dev", title: "The Tech Virtuosos", parentId: "Celesta-Team" },
+    { id: "tech", name: "Web & App Dev", title: "The Tech Virtuosos", parentId: "Committees" },
     { id: "diptanshu", name: "Diptanshu Saurav", title: "Coordinator", parentId: "tech", image: "/team-images/Diptanshu.jpg", linkedin: "https://www.linkedin.com/in/diptanshu-saurav-697495287/", x: "https://www.instagram.com/dip.sauravvv_/" },
 
 
@@ -116,7 +116,7 @@ export const developersData: TeamMember[] = [
         parentId: null,
         name: "Parv Agarwal",
         title: "General Member",
-        image: "/team-images/parv.png",
+        image: "/team-images/Parv.jpg",
         linkedin: "https://www.linkedin.com/in/parvagarwal/",
         x: "https://www.instagram.com/z.e.r.o01?igsh=b3Zhd3BldmV1YzBv",
     },
@@ -126,8 +126,8 @@ export const developersData: TeamMember[] = [
         name: "Prashant Raj",
         title: "Sub-Coordinator",
         image: "/team-images/prashant.png",
-        linkedin: "https://linkedin.com/in/xxxxx",
-        x: "https://instagram.com/xxxxx",
+        linkedin: "https://www.linkedin.com/in/prashant-raj-710845318/",
+        x: "https://www.instagram.com/razzprashant0/",
     },
     {
         id: "dev-abhinav",
