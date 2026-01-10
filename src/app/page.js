@@ -266,12 +266,40 @@ export default function Home() {
           <div className="w-24 h-[2px] mx-auto mb-6 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
 
           {/* Description */}
-          <p className="max-w-3xl mx-auto text-gray-200 text-base md:text-lg leading-relaxed">
-            A call to rise, rediscover, and redefine.
-            <br />
-            Celesta is where lost ideas are reborn, boundaries are shattered, and every
-            participant reclaims their realm — of creativity, innovation, and identity.
-          </p>
+          <div className="max-w-7xl mx-auto text-gray-200 text-base md:text-lg leading-relaxed text-justify relative clearfix px-4 md:px-10">
+
+            {/* Floated Image */}
+            <div className="float-none md:float-right md:ml-12 md:mb-6 w-full md:w-[45%] lg:w-[40%] flex justify-center md:block mb-8 md:mt-2">
+              <Image
+                src="/images/celesta-theme.png"
+                alt="Celesta Theme"
+                width={600}
+                height={600}
+                className="rounded-xl shadow-2xl object-cover hover:scale-105 transition-transform duration-500 w-full"
+              />
+            </div>
+
+            <div className="space-y-6">
+              <p>
+                “Reclaim” is a word rooted in Latin “reclamare” – to call back, to demand the return of what was lost. In this context, “reclaim” is not merely about retrieval, but returning and usage of lost wisdom by it’s rightful owners.
+              </p>
+              <p>
+                “Realms” denote sovereign territories, representing technology’s 5 sovereign domains; energy, memory, connection, creation, and logic. Here, they are represented by the realms of fire, water, air, earth, and aether, respectively.
+              </p>
+              <p>
+                This theme frames technology as a combination of elements that are to be reclaimed and reunited. Returning each realm to its rightful owner, and stripping the power away from whom it does not belong to.
+              </p>
+
+              <div className="pl-4 border-l-2 border-cyan-500/30">
+                <p className="mb-2">
+                  <span className="text-cyan-400 font-semibold">Restoration of knowledge:</span> Restoring ancient wisdom, applying it to our understanding of technology.
+                </p>
+                <p>
+                  <span className="text-cyan-400 font-semibold">Reuniting of Elements:</span> Reclaiming the realms under one person, and viewing the wholeness of technology comprised by those elements.
+                </p>
+              </div>
+            </div>
+          </div>
 
         </section>
         <section className="max-w-7xl mx-auto mb-16 reveal-section">
