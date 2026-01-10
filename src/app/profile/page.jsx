@@ -4,6 +4,8 @@ import { useAuth } from "@/context/AuthUserContext";
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { QRCodeSVG } from "qrcode.react";
+import { useRouter } from "next/navigation";
+import { useInvoices } from "@/hooks/useInvoices";
 import {
     User,
     Mail,
@@ -23,9 +25,12 @@ import {
 } from "@/components/ui/ProfileCard";
 import { Button } from "@/components/ui/button";
 import styles from "./Profile.module.css";
+import { useCart } from "@/context/CartContext";
+import { checkout } from '@/lib/checkout'
 
 export default function Profile() {
-    const { authUser } = useAuth();
+   const router = useRouter();
+    const { authUser, loading, signOutUser } = useAuth();
     const qrRef = useRef(null);
 
     const [profile, setProfile] = useState({
@@ -133,6 +138,10 @@ export default function Profile() {
             downloadQR();
         }
     };
+    const { cart, removeFromCart, emptyCart } = useCart();
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const totalPrice = cart.reduce((sum, item) => sum + (item.cost * item.quantity), 0);
+    const { invoices } = useInvoices();
 
     return (
         <div className={styles.background}>
@@ -152,6 +161,9 @@ export default function Profile() {
                     </CardTitle>
                     <CardDescription className="text-white/60 text-sm">
                         Celesta 2026 · IIT Patna
+                    <button 
+                     onClick={() => {signOutUser();router.replace("/")}}
+                     className="mx-4 px-2 py-1 text-neutral-500 text-xs bg-neutral-900 uppercase tracking-wide">Log Out</button>
                     </CardDescription>
                 </CardHeader>
 
@@ -239,6 +251,103 @@ export default function Profile() {
                 <CardFooter className="justify-center text-xs text-white/50">
                     Scan QR at Celesta entry gates
                 </CardFooter>
+                <div className="flex flex-col items-center justify-center">
+                        {
+                            cart.length === 0 ?
+                                            <CardFooter className="justify-center text-xs text-white/50">
+                                                Your Cart is empty
+                                            </CardFooter>
+                            :
+
+                        <div className="max-w-2xl mx-auto p-6 rounded-xl">
+                            <div className="flex justify-between items-center mb-6">
+                                <h2 className="text-2xl font-bold text-white">Shopping Cart</h2>
+                                <div className="text-lg font-semibold text-neutral-300">
+                                {totalItems} items • ₹{totalPrice.toFixed(2)}
+                                </div>
+                            </div>
+
+                            <div className="space-y-4 mb-8">
+                                {cart.map((item) => (
+                                <div key={item.id} className="flex items-center justify-between p-4 bg-neutral-800 rounded-lg">
+                                    <div className="flex items-center space-x-4">
+                                    <div className="">
+                                        <h3 className="font-semibold text-white">{item.name}</h3>
+                                        <p className="text-sm text-neutral-400">₹{item.cost?.toFixed(2) || 'N/A'}</p>
+                                    </div>
+                                    </div>
+                                    <div className="flex items-center space-x-4">
+                                    <span className="text-lg font-semibold text-white">{item.quantity}</span>
+                                    <button
+                                        onClick={() => removeFromCart(item.id)}
+                                        className="px-4 py-1 bg-red-600 text-white rounded-md hover:bg-red-700 transition"
+                                    >
+                                        Remove
+                                    </button>
+                                    </div>
+                                </div>
+                                ))}
+                            </div>
+
+                            <div className="flex justify-between pt-4 border-t border-neutral-700 gap-4">
+                                <button
+                                onClick={emptyCart}
+                                className="px-6 py-2 bg-neutral-700 text-white rounded-md hover:bg-neutral-600 transition"
+                                >
+                                Empty Cart
+                                </button>
+                                <button 
+                                onClick={async () => { checkout(cart, authUser).then(() => emptyCart()) }}
+                                className="px-8 py-3 bg-green-600 text-white font-semibold rounded-md hover:bg-green-700 transition">
+                                Checkout (₹{totalPrice.toFixed(2)})
+                                </button>
+                            </div>
+                            </div>
+                        }
+        
+
+
+
+                        {
+                            invoices.length === 0 ?
+                                            <CardFooter className="justify-center text-xs text-white/50">
+                                                No Invoices
+                                            </CardFooter>
+                            :
+
+                        <div className="max-w-2xl mx-auto p-6 rounded-xl">
+                            <div className="flex justify-between items-center mb-6">
+                                <h2 className="text-2xl font-bold text-white">Invoices</h2>
+                            </div>
+
+                            <div className="space-y-4 mb-8 flex overflow-scroll">
+                                {invoices.map((invoice) => (
+                                    <div key={invoice.id}>
+                                    {invoice.cart.map(item => (
+
+                                <div key={item.id} className="border-1 scale-80 flex items-center justify-between p-4  rounded-lg">
+                                    <div className="flex items-center space-x-4 px-2">
+                                    <div className="">
+                                        <h3 className="font-semibold text-white">{item.name}</h3>
+                                        <p className="text-sm text-neutral-400">₹{item.cost?.toFixed(2) || 'N/A'}</p>
+                                    </div>
+                                    </div>
+                                    <div className="flex items-center space-x-4 px-2">
+                                    <span className="text-lg font-semibold text-white">x{item.quantity}</span>
+                                    </div>
+                                </div>
+
+
+                                    ))}
+                                    </div>
+                                ))}
+                            </div>
+
+                            </div>
+                        }
+
+
+                </div>
             </Card>
         </div>
     );

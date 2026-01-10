@@ -1,11 +1,13 @@
 import Image from "next/image";
 import { useCart } from "@/context/CartContext";
+import { toast } from "react-hot-toast";
 
 export default function ProductCard({ name, cost, img_src, id }) {
   const { cart, addToCart, removeFromCart } = useCart();
 
   const handleAddToCart = () => {
     addToCart({ name, cost, img_src, id });
+    toast.success("Added to cart");
   };
 
   const handleRemoveFromCart = () => {

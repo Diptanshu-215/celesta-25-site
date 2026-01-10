@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-
+import { useCart } from "@/context/CartContext";
+import { toast } from "react-hot-toast";
 export default function EventModal({ event, onClose }) {
     const [showForm, setShowForm] = useState(false);
 
@@ -53,28 +54,77 @@ export default function EventModal({ event, onClose }) {
                         </div>
                     </>
                 ) : (
-                    <RegisterForm event={event} />
+                    <RegisterForm event={event} onClose={onClose}/>
                 )}
             </div>
         </div>
     );
 }
 
-function RegisterForm({ event }) {
+function RegisterForm({ event, onClose }) {
+    const [college, setCollege] = useState('');
+    const [collegeId, setCollegeId] = useState('');
+    const [aadhar, setAadhar] = useState('');
+    const [teamName, setTeamName] = useState('');
+    const { cart, addToCart, removeFromCart } = useCart();
+     const handleKeyDown = (e) => {
+       if (e.key === "Enter") e.preventDefault(); 
+     };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if(!(college && aadhar && teamName)) {
+            toast.error("Please fill required fields");
+            return;
+        }
+        addToCart({
+            name: event.name, 
+            cost: event.fee > 0 ? event.fee : 400, 
+            img_src: event.img_src, 
+            id: event.name.toLocaleLowerCase(),
+            college: college,
+            collegeId: collegeId,
+            aadhar: aadhar,
+            teamName: teamName,
+            quantity: 1
+        });
+        toast.success("Event added to cart");
+        onClose();
+    };
     return (
         <>
             <h2 className="text-2xl font-bold mb-4">
                 Register for {event.name}
             </h2>
 
-            <form className="flex flex-col gap-3">
-                <input placeholder="Name" className="p-2 rounded bg-neutral-800" />
-                <input placeholder="College / Organisation" className="p-2 rounded bg-neutral-800" />
-                <input placeholder="College ID (if any)" className="p-2 rounded bg-neutral-800" />
-                <input placeholder="Aadhar Card Number" className="p-2 rounded bg-neutral-800" />
-                <input placeholder="Team Name" className="p-2 rounded bg-neutral-800" />
+            <form onSubmit={handleSubmit} onKeyDown={handleKeyDown} className="flex flex-col gap-3">
+        {/*<input placeholder="Name" className="p-2 rounded bg-neutral-800" />*/}
+                <input 
+                    placeholder="College / Organisation" 
+                    className="p-2 rounded bg-neutral-800"
+                    value={college}
+                    onChange={(e) => setCollege(e.target.value)}
+                />
+                <input 
+                    placeholder="College ID (if any)" 
+                    className="p-2 rounded bg-neutral-800"
+                    value={collegeId}
+                    onChange={(e) => setCollegeId(e.target.value)}
+                />
+                <input 
+                    placeholder="Aadhar Card Number" 
+                    className="p-2 rounded bg-neutral-800"
+                    value={aadhar}
+                    onChange={(e) => setAadhar(e.target.value)}
+                />
+                <input 
+                    placeholder="Team Name" 
+                    className="p-2 rounded bg-neutral-800"
+                    value={teamName}
+                    onChange={(e) => setTeamName(e.target.value)}
+                />
 
-                <button className="bg-white text-black py-2 rounded mt-2">
+                <button type="submit"
+                  className="bg-white text-black py-2 rounded mt-2">
                     Submit
                 </button>
             </form>

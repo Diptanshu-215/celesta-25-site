@@ -2,10 +2,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
+import { useAuth } from "@/context/AuthUserContext";
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+    const { authUser, loading, signOutUser } = useAuth();
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
@@ -41,8 +42,18 @@ export default function Navbar() {
                     <Link href="/workshop" className="opacity-80 hover:opacity-100 transition">Workshops</Link>
                     <Link href="/team" className="opacity-80 hover:opacity-100 transition">Team</Link>
                     <Link href="/gallery" className="opacity-80 hover:opacity-100 transition">Gallery</Link>
-                    <Link href="/login" className="rounded-full border-2 border-teal-500 px-5 py-2 opacity-80 hover:opacity-100 hover:bg-teal-500 hover:text-black transition">Login</Link>
-                    <Link href="/register" className="rounded-full bg-teal-500 px-5 py-2 text-black hover:bg-teal-400 transition">Register</Link>
+                    {
+                        authUser ?
+                            <>
+                            <Link href="/store" className="opacity-80 hover:opacity-100 transition">Store</Link>
+                            <Link href="/profile" className="rounded-full bg-teal-500 px-5 py-2 text-black hover:bg-teal-400 transition">Profile</Link>
+                            </>
+                        :
+                            <>
+                            <Link href="/login" className="rounded-full border-2 border-teal-500 px-5 py-2 opacity-80 hover:opacity-100 hover:bg-teal-500 hover:text-black transition">Login</Link>
+                            <Link href="/register" className="rounded-full bg-teal-500 px-5 py-2 text-black hover:bg-teal-400 transition">Register</Link>
+                            </>
+                    }
                 </div>
 
                 {/* Mobile Hamburger Menu Button */}
@@ -67,10 +78,17 @@ export default function Navbar() {
                         <Link href="/workshop" className="block py-2 opacity-80 hover:opacity-100 transition" onClick={closeMenu}>Workshops</Link>
                         <Link href="/team" className="block py-2 opacity-80 hover:opacity-100 transition" onClick={closeMenu}>Team</Link>
                         <Link href="/gallery" className="block py-2 opacity-80 hover:opacity-100 transition" onClick={closeMenu}>Gallery</Link>
-                        <div className="pt-4 space-y-3">
-                            <Link href="/login" className="block text-center rounded-full border-2 border-teal-500 px-5 py-2 opacity-80 hover:opacity-100 hover:bg-teal-500 hover:text-black transition" onClick={closeMenu}>Login</Link>
-                            <Link href="/register" className="block text-center rounded-full bg-teal-500 px-5 py-2 text-black hover:bg-teal-400 transition" onClick={closeMenu}>Register</Link>
-                        </div>
+                        {authUser ? 
+                                    <>
+                                    <Link href="/store" className="block py-2 opacity-80 hover:opacity-100 transition" onClick={closeMenu}>Store</Link>
+                                    <Link href="/profile" className="block py-2 opacity-80 hover:opacity-100 transition" onClick={closeMenu}>Profile</Link>
+                                    </>
+                                  :
+                                    <div className="pt-4 space-y-3">
+                                        <Link href="/login" className="block text-center rounded-full border-2 border-teal-500 px-5 py-2 opacity-80 hover:opacity-100 hover:bg-teal-500 hover:text-black transition" onClick={closeMenu}>Login</Link>
+                                        <Link href="/register" className="block text-center rounded-full bg-teal-500 px-5 py-2 text-black hover:bg-teal-400 transition" onClick={closeMenu}>Register</Link>
+                                    </div>
+                        }
                     </div>
                 </div>
             )}
