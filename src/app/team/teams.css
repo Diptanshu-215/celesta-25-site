@@ -306,8 +306,8 @@ body {
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  display: none;
-  /* Hidden on mobile by default */
+  display: flex;
+  /* Visible on mobile */
   align-items: center;
   justify-content: center;
   z-index: 100;
