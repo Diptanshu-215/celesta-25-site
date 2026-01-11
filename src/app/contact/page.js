@@ -16,12 +16,12 @@ export default function Contact() {
 
         <div className="flex flex-wrap justify-center items-center w-full gap-14 ">
           {/* Contact Form */}
-          <SendMessage/>
+          <SendMessage />
 
 
 
           {/* Contact Info */}
-          <ContactSection/>
+          <ContactSection />
         </div>
       </div>
     </div>

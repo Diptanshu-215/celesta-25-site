@@ -37,8 +37,11 @@ const buildTeamTree = (data: TeamMember[]): TeamNode[] => {
 
 // Component to render a single card
 const MemberCard = ({ member }: { member: TeamNode }) => {
+  const isConvenor = member.parentId === "convenors";
+  const hideTitle = member.parentId === "fest-coords" || member.parentId === "convenors";
+
   return (
-    <div className="node-card-wrapper">
+    <div className={`node-card-wrapper ${isConvenor ? 'yellow-card' : ''}`}>
       <div className="node-card-border"></div>
       <div className="node-card-content">
 
@@ -58,7 +61,7 @@ const MemberCard = ({ member }: { member: TeamNode }) => {
 
         <div className="node-info">
           <div className="node-name">{member.name}</div>
-          <div className="node-title">{member.title}</div>
+          {!hideTitle && <div className="node-title">{member.title}</div>}
         </div>
 
         <div className="node-social-links">
@@ -135,7 +138,7 @@ const TeamSection = ({ node, level = 0 }: { node: TeamNode; level?: number }) =>
 
   return (
     <div className={`team-section `}>
-      <h2 className="team-section-title">{node.name}</h2>
+      <h2 className={`team-section-title ${node.id === 'convenors' ? 'yellow-title' : ''}`}>{node.name}</h2>
 
       {/* If it's the tech section, maybe add a subtitle or decoration? */}
 
@@ -163,12 +166,13 @@ export default function TeamsPage() {
 
   return (
     <main className="teams-page relative min-h-screen">
-      <div className="fixed inset-0 z-0">
+      <div className="fixed inset-0 z-0 text-white">
         <img
           src="/images/events-backdrop.png"
           alt="Background"
           className="w-full h-full object-cover opacity-90"
         />
+        <div className="absolute inset-0 bg-black/60"></div> {/* Dark Overlay */}
         <div className="absolute inset-0 z-10 opacity-50 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,white_100%)]">
           <svg className="absolute inset-0 h-full w-full text-white" aria-hidden="true">
             <defs>
@@ -188,8 +192,8 @@ export default function TeamsPage() {
           <TeamSection key={root.id} node={root} />
         ))}
       </div>
-     
-        <DevelopersPanel/>
+
+      <DevelopersPanel />
 
     </main>
   );

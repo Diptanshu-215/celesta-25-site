@@ -1,8 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
 import styles from './Workshops.module.css';
 
-export default function WorkshopCard({ name, img_src, register_link }) {
+export default function WorkshopCard({ name, img_src, onView }) {
   return (
     <div className={styles.eventCardWrapper}>
       <div className={styles.eventCardBorder}></div>
@@ -25,11 +24,11 @@ export default function WorkshopCard({ name, img_src, register_link }) {
           <h1 className={styles.eventName}>{name}</h1>
         </div>
 
-        {/* Register Button */}
+        {/* View Button */}
         <div className={styles.registerButtonContainer}>
-          <Link href={register_link} className={styles.registerButton}>
-            Register
-          </Link>
+          <button onClick={onView} className={styles.registerButton}>
+            View
+          </button>
         </div>
 
       </div>

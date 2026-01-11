@@ -344,7 +344,7 @@ export default function SponsorsPage() {
                 <div className="mt-8 flex justify-center">
                     <button onClick={handleLogoClick} className="relative w-16 h-16 flex items-center justify-center">
                         <div className={cn("absolute inset-0 rounded-full bg-cyan-500/20", isAnimating && !isPaused && "animate-ping-slow")}></div>
-                        <img src="/images/celesta-icon.png" alt="Celesta Icon" className="w-10 h-10" />
+                        <img src="/images/celesta-icon.svg" alt="Celesta Icon" className="w-10 h-10" />
                     </button>
                 </div>
                 <motion.p

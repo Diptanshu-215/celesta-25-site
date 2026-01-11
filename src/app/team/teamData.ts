@@ -23,11 +23,11 @@ export const teamData: TeamMember[] = [
     { id: "aman", name: "Aman Aryan", title: "Convenors", parentId: "convenors", image: "/team-images/aman-aryan.png", linkedin: "https://www.linkedin.com/in/amanaryan0112358?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", x: "https://www.instagram.com/amanaryan567?igsh=MWJ2bWUwdTh5dWwwMw==" },
     { id: "yash", name: "Yash Raj", title: "Convenors", parentId: "convenors", image: "/team-images/yash.png", linkedin: "https://www.linkedin.com/in/yash-raj22?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", x: "https://www.instagram.com/_yash_.raj?igsh=dGJqcTlsdmJ5NXU=" },
 
-    
+
     // Committees
     { id: "Committees", name: "All Committees", title: "The Performers", parentId: "Celesta-Team" },
 
-   
+
 
     // Hospitality
     { id: "hospitality", name: "Hospitality", title: "The Ambassadors of Welcome", parentId: "Committees" },
@@ -35,14 +35,14 @@ export const teamData: TeamMember[] = [
     { id: "nisha", name: "Kumari Nisha", title: "Coordinator", parentId: "hospitality", image: "/team-images/nisha.jpeg", linkedin: "https://www.linkedin.com/in/kumari-nisha-3209b02a2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", x: "https://www.instagram.com/nairanisha02?igsh=bnJtb2ptajh3YnV0" },
     { id: "vidhan", name: "Vidhan Bansal", title: "Coordinator", parentId: "hospitality", image: "/team-images/vidhan.jpg", linkedin: "https://www.linkedin.com/in/vidhan-bansal-9bb784290/", x: "https://www.instagram.com/vidhanbansal66/" },
 
-      // Events
+    // Events
     { id: "events", name: "Events", title: "The Experience Engineers", parentId: "Committees" },
     { id: "aayush", name: "Aayush Sheth", title: "Coordinator", parentId: "events", image: "/team-images/aayush.jpg", linkedin: "#", x: "#" },
     { id: "sreyas", name: "Sreyas Kotha", title: "Coordinator", parentId: "events", image: "/team-images/sreyas.jpg", linkedin: "#", x: "#" },
     { id: "atharava", name: "Atharva Pradeep Pawar", title: "Coordinator", parentId: "events", image: "/team-images/Atharva.jpg", linkedin: "https://www.linkedin.com/in/atharva-pawar-a58b272b9?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", x: "https://www.instagram.com/atharv.a_525?igsh=bzBwdzEwajVoeG12" },
 
 
-     // Web & App Dev
+    // Web & App Dev
     { id: "tech", name: "Web & App Dev", title: "The Tech Virtuosos", parentId: "Committees" },
     { id: "diptanshu", name: "Diptanshu Saurav", title: "Coordinator", parentId: "tech", image: "/team-images/Diptanshu.jpg", linkedin: "https://www.linkedin.com/in/diptanshu-saurav-697495287/", x: "https://www.instagram.com/dip.sauravvv_/" },
 
@@ -61,8 +61,8 @@ export const teamData: TeamMember[] = [
     { id: "yatharth", name: "Yatharth Gupta", title: "Coordinator", parentId: "sponsorship", image: "/team-images/Yatharth.jpg", linkedin: "https://www.linkedin.com/in/yatharth-gupta-46796a290?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", x: "https://www.instagram.com/yatharth711_?igsh=dDU2M2hjb3I0MnV4" },
     { id: "sanit", name: "Sanit Sinha", title: "Coordinator", parentId: "sponsorship", image: "/team-images/Sanit.jpg", linkedin: "#", x: "#" },
     { id: "shaurya", name: "Shaurya Kumar", title: "Coordinator", parentId: "sponsorship", image: "/team-images/Shaurya.jpg", linkedin: "https://www.linkedin.com/shauryakmaurya/", x: "https://www.instagram.com/_shaurya_km/" },
-   
-  
+
+
     // Flagship
     { id: "flagship", name: "Flagship", title: "The Mainstage Mavericks", parentId: "Committees" },
     { id: "nakshatra", name: "Nakshatra Kanchan", title: "Coordinator", parentId: "flagship", image: "/team-images/nakshatra.jpg", linkedin: "https://www.linkedin.com/in/nakshatra-kanchan", x: "https://www.instagram.com/nakssshhhhh_?igsh=NTc4MTIwNjQ2YQ==" },
@@ -114,6 +114,15 @@ export const developersData: TeamMember[] = [
         image: "/team-images/Diptanshu.jpg",
         linkedin: "https://www.linkedin.com/in/diptanshu-saurav-697495287/",
         x: "https://www.instagram.com/dip.sauravvv_/",
+    },
+    {
+        id: "dev-rishi",
+        parentId: null,
+        name: "Rishi Kumar",
+        title: "App Developer",
+        image: "/team-images/rishi.jpeg",
+        linkedin: "https://www.linkedin.com/in/rishikumar-gautam-14b22b295/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        x: "https://www.instagram.com/rishikumar_iitp?igsh=cDIxbTN3aHRxODNo",
     },
     {
         id: "dev-parv",
@@ -168,14 +177,5 @@ export const developersData: TeamMember[] = [
         image: "/team-images/rupam.png",
         linkedin: "https://www.linkedin.com/in/rupam-dutta-4013a8321/",
         x: "https://www.instagram.com/_thandi_cow/?utm_source=ig_web_button_share_sheet",
-    },
-    {
-        id: "dev-rishi",
-        parentId: null,
-        name: "Rishi Kumar",
-        title: "App Developer",
-        image: "/team-images/rishi.jpeg",
-        linkedin: "https://www.linkedin.com/in/rishikumar-gautam-14b22b295/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        x: "#",
     },
 ];

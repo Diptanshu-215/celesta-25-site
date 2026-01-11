@@ -81,7 +81,8 @@ body {
   margin: 0 auto;
   padding: 0 1.5rem;
 
-  justify-content: center; /* ⭐ THIS IS THE MAGIC */
+  justify-content: center;
+  /* ⭐ THIS IS THE MAGIC */
 }
 
 
@@ -90,7 +91,8 @@ body {
 /* Wrapper handles the border/outline effect since clip-path cuts borders */
 .node-card-wrapper {
   position: relative;
-  width: 300px; /* earlier 100%*/
+  width: 300px;
+  /* earlier 100%*/
   height: 400px;
   /* Fixed height for consistent look */
   filter: drop-shadow(0 0 5px rgba(255, 0, 85, 0.4));
@@ -301,10 +303,11 @@ body {
   width: 80px;
   height: 80px;
   border-radius: 9999px;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.2);
-  display: flex;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: none;
+  /* Hidden on mobile by default */
   align-items: center;
   justify-content: center;
   z-index: 100;
@@ -312,16 +315,24 @@ body {
   cursor: pointer;
   /* transition: transform 0.25s ease; */
 
-  overflow: hidden; /* IMPORTANT for glow mask */
+  overflow: hidden;
+  /* IMPORTANT for glow mask */
 
   --primary: 200 100% 50%;
   --mouseX: 50%;
   --mouseY: 50%;
 }
 
+@media (min-width: 768px) {
+  .dev-fab {
+    display: flex;
+  }
+}
+
 .dev-fab:hover {
   transform: scale(1.05);
 }
+
 .dev-fab::before {
   content: "";
   position: absolute;
@@ -329,16 +340,14 @@ body {
   border-radius: inherit;
   padding: 2.5px;
 
-  background: conic-gradient(
-    from var(--angle),
-    transparent 0%,
-    transparent 33%,
-    var(--border-color) 50%,
-    transparent 66%
-  );
+  background: conic-gradient(from var(--angle),
+      transparent 0%,
+      transparent 33%,
+      var(--border-color) 50%,
+      transparent 66%);
 
   animation: rotate 2s linear infinite,
-             borderColorCycle 4s linear infinite;
+    borderColorCycle 4s linear infinite;
 
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -359,15 +368,14 @@ body {
   filter: drop-shadow(0 0 6px var(--glow-color));
   animation: glowColorCycle 4s linear infinite;
 }
+
 .dev-fab .inner {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: radial-gradient(
-    80px circle at var(--mouseX) var(--mouseY),
-    hsl(var(--primary) / 0.35),
-    transparent 55%
-  );
+  background: radial-gradient(80px circle at var(--mouseX) var(--mouseY),
+      hsl(var(--primary) / 0.35),
+      transparent 55%);
   opacity: 0;
   transition: opacity 0.25s ease;
   pointer-events: none;
@@ -390,8 +398,13 @@ body {
 }
 
 @keyframes rotate {
-  from { --angle: 0deg; }
-  to   { --angle: 360deg; }
+  from {
+    --angle: 0deg;
+  }
+
+  to {
+    --angle: 360deg;
+  }
 }
 
 @property --border-color {
@@ -401,11 +414,25 @@ body {
 }
 
 @keyframes borderColorCycle {
-  0%   { --border-color: #92EBFF; }
-  25%  { --border-color: #E3F9B3; }
-  50%  { --border-color: #FB7AC3; }
-  75%  { --border-color: #A9AAFF; }
-  100% { --border-color: #92EBFF; }
+  0% {
+    --border-color: #92EBFF;
+  }
+
+  25% {
+    --border-color: #E3F9B3;
+  }
+
+  50% {
+    --border-color: #FB7AC3;
+  }
+
+  75% {
+    --border-color: #A9AAFF;
+  }
+
+  100% {
+    --border-color: #92EBFF;
+  }
 }
 
 @property --glow-color {
@@ -415,11 +442,25 @@ body {
 }
 
 @keyframes glowColorCycle {
-  0%   { --glow-color: #92EBFF; }
-  25%  { --glow-color: #E3F9B3; }
-  50%  { --glow-color: #FB7AC3; }
-  75%  { --glow-color: #A9AAFF; }
-  100% { --glow-color: #92EBFF; }
+  0% {
+    --glow-color: #92EBFF;
+  }
+
+  25% {
+    --glow-color: #E3F9B3;
+  }
+
+  50% {
+    --glow-color: #FB7AC3;
+  }
+
+  75% {
+    --glow-color: #A9AAFF;
+  }
+
+  100% {
+    --glow-color: #92EBFF;
+  }
 }
 
 
@@ -431,7 +472,7 @@ body {
 .dev-overlay {
   position: fixed;
   inset: 0;
-  background: transparent; 
+  background: transparent;
   z-index: 120;
 }
 
@@ -446,7 +487,7 @@ body {
   height: 100vh;
   transform: translateY(50vh);
 
-  background: rgba(10,10,20,0.95);
+  background: rgba(10, 10, 20, 0.95);
   backdrop-filter: blur(20px);
 
   border-radius: 28px 28px 0 0;
@@ -466,28 +507,73 @@ body {
   cursor: pointer;
   z-index: 130;
 }
+
 @media (min-width: 1024px) {
   .dev-panel {
     top: 0;
     bottom: 0;
-    left: 0;     
+    left: 0;
     right: auto;
 
     width: 420px;
     height: 100vh;
-    overflow-y: auto;            
-    scrollbar-width: none;       
-    -ms-overflow-style: none;    
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     transform: translateX(0);
     border-radius: 0 24px 24px 0;
 
-    box-shadow: 8px 0 30px rgba(0,0,0,0.35);
+    box-shadow: 8px 0 30px rgba(0, 0, 0, 0.35);
   }
+
   .dev-panel::-webkit-scrollbar {
-    display: none;              
+    display: none;
   }
 }
 
 
 /* developer icon  */
 
+
+/* === YELLOW THEME FOR CONVENORS === */
+.node-card-wrapper.yellow-card .node-card-border {
+  background: linear-gradient(135deg, #ffd700 0%, #222 30%, #222 70%, #d4af37 100%);
+  clip-path: polygon(30px 0, 100% 0,
+      100% calc(100% - 30px),
+      calc(100% - 30px) 100%,
+      0 100%,
+      0 30px);
+}
+
+.node-card-wrapper.yellow-card .node-card-content::before {
+  background: linear-gradient(135deg, #ffd700 0%, transparent 40%);
+}
+
+.node-card-wrapper.yellow-card .node-card-content::after {
+  background: linear-gradient(135deg, transparent 40%, #ffd700 100%);
+}
+
+.node-card-wrapper.yellow-card .node-name {
+  text-shadow: 2px 2px 0px rgba(255, 215, 0, 0.5);
+}
+
+.node-card-wrapper.yellow-card .node-title {
+  border-left: 3px solid #ffd700;
+}
+
+.node-card-wrapper.yellow-card .social-icon {
+  background: rgba(255, 215, 0, 0.8);
+}
+
+.node-card-wrapper.yellow-card {
+  filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.4));
+}
+
+.node-card-wrapper.yellow-card:hover {
+  filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8));
+}
+
+
+.team-section-title.yellow-title::after {
+  background: linear-gradient(90deg, #ffd700, #ffd700) !important;
+}
