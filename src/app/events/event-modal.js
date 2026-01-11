@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import styles from "./EventModal.module.css";
+import { useCart } from "@/context/CartContext";
+import toast from "react-hot-toast";
 
 export default function EventModal({ event, onClose }) {
     const [showForm, setShowForm] = useState(false);
@@ -69,18 +71,18 @@ function RegisterForm({ event, onClose }) {
     const [teamName, setTeamName] = useState('');
     const { cart, addToCart, removeFromCart } = useCart();
     const handleKeyDown = (e) => {
-       if (e.key === "Enter") e.preventDefault(); 
-     };
+        if (e.key === "Enter") e.preventDefault();
+    };
     const handleSubmit = (e) => {
         e.preventDefault();
-        if(!(college && aadhar && teamName)) {
+        if (!(college && aadhar && teamName)) {
             toast.error("Please fill required fields");
             return;
         }
         addToCart({
-            name: event.name, 
-            cost: event.fee > 0 ? event.fee : 400, 
-            img_src: event.img_src, 
+            name: event.name,
+            cost: event.fee > 0 ? event.fee : 400,
+            img_src: event.img_src,
             id: event.name.toLocaleLowerCase(),
             college: college,
             collegeId: collegeId,
@@ -98,7 +100,7 @@ function RegisterForm({ event, onClose }) {
             </h2>
 
             <form onSubmit={handleSubmit} onKeyDown={handleKeyDown} className="flex flex-col gap-4">
-        {/*<input placeholder="Name" className="p-3 rounded-lg bg-white/5 border border-white/10 focus:border-teal-400 outline-none text-white placeholder-white/40 transition-colors" />*/}
+                {/*<input placeholder="Name" className="p-3 rounded-lg bg-white/5 border border-white/10 focus:border-teal-400 outline-none text-white placeholder-white/40 transition-colors" />*/}
                 <input placeholder="College / Organisation" className="p-3 rounded-lg bg-white/5 border border-white/10 focus:border-teal-400 outline-none text-white placeholder-white/40 transition-colors"
                     value={college}
                     onChange={(e) => setCollege(e.target.value)}
@@ -106,12 +108,12 @@ function RegisterForm({ event, onClose }) {
                 <input placeholder="College ID (if any)" className="p-3 rounded-lg bg-white/5 border border-white/10 focus:border-teal-400 outline-none text-white placeholder-white/40 transition-colors"
                     value={collegeId}
                     onChange={(e) => setCollegeId(e.target.value)}
-                 />
-                <input placeholder="Aadhar Card Number" className="p-3 rounded-lg bg-white/5 border border-white/10 focus:border-teal-400 outline-none text-white placeholder-white/40 transition-colors" 
+                />
+                <input placeholder="Aadhar Card Number" className="p-3 rounded-lg bg-white/5 border border-white/10 focus:border-teal-400 outline-none text-white placeholder-white/40 transition-colors"
                     value={aadhar}
                     onChange={(e) => setAadhar(e.target.value)}
-                 />
-                <input placeholder="Team Name" className="p-3 rounded-lg bg-white/5 border border-white/10 focus:border-teal-400 outline-none text-white placeholder-white/40 transition-colors" 
+                />
+                <input placeholder="Team Name" className="p-3 rounded-lg bg-white/5 border border-white/10 focus:border-teal-400 outline-none text-white placeholder-white/40 transition-colors"
                     value={teamName}
                     onChange={(e) => setTeamName(e.target.value)}
                 />

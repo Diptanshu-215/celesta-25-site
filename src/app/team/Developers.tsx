@@ -112,7 +112,7 @@ export default function DevelopersPanel() {
               ✕
             </button>
 
-            <h2 className="team-section-title">Developers</h2>
+            <h2 className="team-section-title"><span></span>Developers</h2>
 
             <div className="members-grid">
               {developersData.map((dev) => (
@@ -120,8 +120,9 @@ export default function DevelopersPanel() {
               ))}
             </div>
           </div>
-        </div>
-      )}
+        </div >
+      )
+      }
     </>
   );
 }
