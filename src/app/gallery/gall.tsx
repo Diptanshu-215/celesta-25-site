@@ -8,7 +8,7 @@ import {
     MotionValue,
     AnimatePresence,
 } from "framer-motion";
-
+import Image from "next/image";
 type Product = {
     title: string;
     link: string;
@@ -200,6 +200,8 @@ const HeroParallax = ({ products }: { products: Product[] }) => {
                             onClick={(e) => e.stopPropagation()}
                         >
                             <img
+                                width={100}
+                                height={100}
                                 src={products[selectedProductIndex].thumbnail}
                                 alt={products[selectedProductIndex].title}
                                 className="object-contain w-full h-full rounded-lg shadow-2xl"
@@ -259,7 +261,9 @@ const ProductCard = ({ product, translate, onClick }: ProductCardProps) => {
             onClick={onClick}
         >
             <div className="block group-hover/product:shadow-2xl w-full h-full">
-                <img
+                <Image
+                    width={100}
+                    height={100}
                     src={product.thumbnail}
                     height="600"
                     width="600"
@@ -284,10 +288,10 @@ export default function SurrealGallery() {
         { title: "", link: "#", thumbnail: "/gallery-images/g3-1 (1).JPG" },
         { title: "", link: "#", thumbnail: "/gallery-images/g3-1 (2).JPG" },
         { title: "", link: "#", thumbnail: "/gallery-images/g3-1 (3).JPG" },
-        { title: "", link: "#", thumbnail: "/gallery-images/g3-1 (4).JPG" },
+        // { title: "", link: "#", thumbnail: "/gallery-images/g3-1 (4).JPG" },
         { title: "", link: "#", thumbnail: "/gallery-images/g3-1 (5).JPG" },
         { title: "", link: "#", thumbnail: "/gallery-images/g3-1 (6).JPG" },
-        { title: "", link: "#", thumbnail: "/gallery-images/g3-1 (7).JPG" },
+        // { title: "", link: "#", thumbnail: "/gallery-images/g3-1 (7).JPG" },
         { title: "", link: "#", thumbnail: "/gallery-images/g3-1 (8).JPG" },
         { title: "", link: "#", thumbnail: "/gallery-images/g2 (1).JPG" },
         { title: "", link: "#", thumbnail: "/gallery-images/g2 (2).JPG" },
