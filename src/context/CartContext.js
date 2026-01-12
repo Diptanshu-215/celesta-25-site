@@ -5,10 +5,19 @@ const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
-
     const addToCart = (product) => {
         setCart(prevCart => {
+            const addFestPass = (product) => {
+                const existingPass = prevCart.find(item => item.id === product.id);
+                if(existingPass) return prevCart;
+                else {
+                    return [...prevCart, { ...product, quantity: 1 }];
+                }
+            }
             const existingProduct = prevCart.find(item => item.id === product.id);
+            if(product.id == "FEST_PASS") {
+                return addFestPass(product);
+            }
             if (existingProduct) {
                 return prevCart.map(item =>
                     item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item

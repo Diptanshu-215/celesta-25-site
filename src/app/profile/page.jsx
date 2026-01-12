@@ -263,7 +263,7 @@ export default function Profile() {
                             <div className="flex justify-between items-center mb-6">
                                 <h2 className="text-2xl font-bold text-white">Shopping Cart</h2>
                                 <div className="text-lg font-semibold text-neutral-300">
-                                {totalItems} items • ₹{totalPrice.toFixed(2)}
+                                {totalItems} items • ₹{totalPrice}
                                 </div>
                             </div>
 
@@ -273,7 +273,7 @@ export default function Profile() {
                                     <div className="flex items-center space-x-4">
                                     <div className="">
                                         <h3 className="font-semibold text-white">{item.name}</h3>
-                                        <p className="text-sm text-neutral-400">₹{item.cost?.toFixed(2) || 'N/A'}</p>
+                                        <p className="text-sm text-neutral-400">₹{item.cost || 'N/A'}</p>
                                     </div>
                                     </div>
                                     <div className="flex items-center space-x-4">
@@ -299,7 +299,7 @@ export default function Profile() {
                                 <button 
                                 onClick={async () => { checkout(cart, authUser).then(() => emptyCart()) }}
                                 className="px-8 py-3 bg-green-600 text-white font-semibold rounded-md hover:bg-green-700 transition">
-                                Checkout (₹{totalPrice.toFixed(2)})
+                                Checkout (₹{totalPrice})
                                 </button>
                             </div>
                             </div>
@@ -329,7 +329,7 @@ export default function Profile() {
                                     <div className="flex items-center space-x-4 px-2">
                                     <div className="">
                                         <h3 className="font-semibold text-white">{item.name}</h3>
-                                        <p className="text-sm text-neutral-400">₹{item.cost?.toFixed(2) || 'N/A'}</p>
+                                        <p className="text-sm text-neutral-400">₹{item.cost || 'N/A'}</p>
                                     </div>
                                     </div>
                                     <div className="flex items-center space-x-4 px-2">

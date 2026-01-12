@@ -88,7 +88,8 @@ function RegisterForm({ event, onClose }) {
             collegeId: collegeId,
             aadhar: aadhar,
             teamName: teamName,
-            quantity: 1
+            quantity: 1,
+            type: "event"
         });
         toast.success("Event added to cart");
         onClose();
