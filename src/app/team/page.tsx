@@ -37,7 +37,7 @@ const buildTeamTree = (data: TeamMember[]): TeamNode[] => {
 
 // Component to render a single card
 const MemberCard = ({ member }: { member: TeamNode }) => {
-  const isConvenor = member.parentId === "convenors";
+  const isConvenor = member.parentId === "convenors" || member.parentId === "fest-coords";
   const hideTitle = member.parentId === "fest-coords" || member.parentId === "convenors";
 
   return (
@@ -138,7 +138,7 @@ const TeamSection = ({ node, level = 0 }: { node: TeamNode; level?: number }) =>
 
   return (
     <div className={`team-section `}>
-      <h2 className={`team-section-title ${node.id === 'convenors' ? 'yellow-title' : ''}`}>{node.name}</h2>
+      <h2 className={`team-section-title ${node.id === 'convenors' || node.id === 'fest-coords' ? 'yellow-title' : ''}`}>{node.name}</h2>
 
       {/* If it's the tech section, maybe add a subtitle or decoration? */}
 
