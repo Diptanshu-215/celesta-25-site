@@ -55,7 +55,7 @@ export default function Navbar() {
                 {/* Desktop Navigation */}
                 <div className="hidden lg:flex items-center gap-6 state-wide text-xs uppercase text-white">
                     <Link href="/" className="opacity-80 hover:opacity-100 transition">Home</Link>
-                    <Link href="/so-far" className="opacity-80 hover:opacity-100 transition">So Far</Link>
+                    <Link href="/so-far" className="opacity-80 hover:opacity-100 transition">Timeline</Link>
                     <Link href="/events" className="opacity-80 hover:opacity-100 transition">Events</Link>
                     <Link href="/spons" className="opacity-80 hover:opacity-100 transition">Sponsors</Link>
                     <Link href="/workshop" className="opacity-80 hover:opacity-100 transition">Workshops</Link>

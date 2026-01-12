@@ -23,16 +23,16 @@ const ContactSection = () => {
         <div className="flex items-center gap-4">
           <FaPhoneAlt className="text-white text-3xl" />
           <div className="text-white ">
-            <p className="text-xl">Abhitesh Shukla</p>
-            <p>+91 78977 21774</p>
+            <p className="text-xl">Shikhar Verma</p>
+            <p>+91 70004 51202</p>
           </div>
         </div>
 
         <div className="flex items-center gap-4">
           <FaPhoneAlt className="text-white text-3xl" />
           <div className="text-white ">
-            <p className="text-xl">Ananta Nanda</p>
-            <p>+91 73258 73426</p>
+            <p className="text-xl">Yogyansh Khambra</p>
+            <p>+91 95885 36927</p>
           </div>
         </div>
 

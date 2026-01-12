@@ -123,8 +123,7 @@ const CodingBitsCelebration = () => {
 export default function SponsorsPage() {
     const [showGame, setShowGame] = useState(false);
     const [showCelebration, setShowCelebration] = useState(false);
-    const pressTimer = useRef<NodeJS.Timeout | null>(null);
-    const [progress, setProgress] = useState(0);
+
     const [isPaused, setIsPaused] = useState(false);
     const [logoTaps, setLogoTaps] = useState(0);
 
@@ -201,22 +200,7 @@ export default function SponsorsPage() {
         exit: (direction: number) => ({ x: direction < 0 ? '100%' : '-100%', opacity: 0 }),
     };
 
-    const startPressTimer = () => {
-        pressTimer.current = setTimeout(() => {
-            setShowCelebration(true);
-            setTimeout(() => {
-                setShowCelebration(false);
-                setShowGame(true);
-            }, 3000);
-            setProgress(0);
-        }, 6000);
-        setProgress(100);
-    };
 
-    const cancelPressTimer = () => {
-        if (pressTimer.current) clearTimeout(pressTimer.current);
-        setProgress(0);
-    };
 
     useEffect(() => {
         if (logoTaps > 0) {
@@ -243,20 +227,11 @@ export default function SponsorsPage() {
     return (
         <div
             className="min-h-screen bg-black text-white relative overflow-hidden font-sans"
-            onMouseDown={startPressTimer} onMouseUp={cancelPressTimer} onMouseLeave={cancelPressTimer}
-            onTouchStart={startPressTimer} onTouchEnd={cancelPressTimer}
         >
             <div className="fixed inset-0 z-0">
                 <img src="/images/events-backdrop.png" alt="Background" className="w-full h-full object-cover opacity-75" />
             </div>
-            <div className="fixed top-0 left-0 w-full h-1 z-50 pointer-events-none">
-                <motion.div
-                    className="h-full bg-cyan-400"
-                    initial={{ width: '0%' }}
-                    animate={{ width: `${progress}%` }}
-                    transition={{ duration: progress > 0 ? 6 : 0, ease: 'linear' }}
-                />
-            </div>
+
             <div className="absolute inset-0 z-0 opacity-50 [mask-image:radial-gradient(ellipse_at_center,transparent_65%,white_100%)]">
                 <svg className="absolute inset-0 h-full w-full" aria-hidden="true">
                     <defs>
@@ -278,9 +253,8 @@ export default function SponsorsPage() {
                 >
                     Fueling innovation and making our events possible.
                 </motion.p>
-                <div
+                <div className="hidden md:flex relative w-full max-w-8xl items-center justify-center"
                     ref={carouselRef}
-                    className="relative w-full max-w-8xl flex items-center justify-center"
                     onMouseEnter={() => setIsPaused(true)}
                     onMouseLeave={() => setIsPaused(false)}
                 >
@@ -341,6 +315,15 @@ export default function SponsorsPage() {
                         </svg>
                     </button>
                 </div>
+
+                {/* Mobile View: Vertical Stack */}
+                <div className="md:hidden w-full flex flex-col gap-6 px-4">
+                    {sponsors.map((sponsor) => (
+                        <div key={sponsor.name} className="w-full aspect-[16/9]">
+                            <SponsorCard sponsor={sponsor} />
+                        </div>
+                    ))}
+                </div>
                 <div className="mt-8 flex justify-center">
                     <button onClick={handleLogoClick} className="relative w-16 h-16 flex items-center justify-center">
                         <div className={cn("absolute inset-0 rounded-full bg-cyan-500/20", isAnimating && !isPaused && "animate-ping-slow")}></div>
@@ -353,7 +336,7 @@ export default function SponsorsPage() {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5, delay: 1.5 }}
                 >
-                    Hint: Try a long press on sponsors or tap the logo seven times.
+                    Hint: Tap the logo seven times.
                 </motion.p>
             </div>
             <AnimatePresence>
