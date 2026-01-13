@@ -128,7 +128,7 @@ export const developersData: TeamMember[] = [
         id: "dev-parv",
         parentId: null,
         name: "Parv Agarwal",
-        title: "General Member",
+        title: "Sub-Coordinator",
         image: "/team-images/Parv.jpg",
         linkedin: "https://www.linkedin.com/in/parvagarwal/",
         x: "https://www.instagram.com/z.e.r.o01?igsh=b3Zhd3BldmV1YzBv",

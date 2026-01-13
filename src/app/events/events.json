@@ -3,122 +3,332 @@
     {
       "name": "15kg RoboWars",
       "img_src": "/images/robowars-15kg.png",
-      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006"
+      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006",
+      "start_date": "#",
+      "end_date": "#",
+      "description": "#",
+      "rulebook_link": "#",
+      "poc": [],
+      "prize_pool": "#"
     },
     {
       "name": "8kg RoboWars",
       "img_src": "/images/robowars-8kg.png",
-      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006"
+      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006",
+      "start_date": "#",
+      "end_date": "#",
+      "description": "#",
+      "rulebook_link": "#",
+      "poc": [],
+      "prize_pool": "#"
     },
     {
       "name": "Death Race",
       "img_src": "/images/deathrace.png",
-      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006"
+      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006",
+      "start_date": "#",
+      "end_date": "#",
+      "description": "#",
+      "rulebook_link": "#",
+      "poc": [],
+      "prize_pool": "#"
     },
     {
       "name": "Robo Soccer",
       "img_src": "/images/robosoccer.png",
-      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006"
+      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006",
+      "start_date": "#",
+      "end_date": "#",
+      "description": "#",
+      "rulebook_link": "#",
+      "poc": [],
+      "prize_pool": "#"
+
     },
     {
       "name": "Line Follower",
       "img_src": "/images/linefollower.png",
-      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006"
+      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006",
+      "start_date": "#",
+      "end_date": "#",
+      "description": "#",
+      "rulebook_link": "#",
+      "poc": [],
+      "prize_pool": "#"
     },
     {
       "name": "Aerosprint",
       "img_src": "/images/aerosprint.png",
-      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006"
+      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006",
+      "start_date": "#",
+      "end_date": "#",
+      "description": "#",
+      "rulebook_link": "#",
+      "poc": [],
+      "prize_pool": "#"
     },
     {
-      "name": "Aqua Rush",
+      "name": "Aqua Soccer",
       "img_src": "/images/aquarush.png",
-      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006"
+      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006",
+      "start_date": "#",
+      "end_date": "#",
+      "description": "Make a splash in the pool! Rally your crew and dive into this adrenaline-fueled aquasoccer showdown. Outscore the competition, engineer the perfect strike, and stay original—because in this arena, innovation is the ultimate playmaker.",
+      "rulebook_link": "https://docs.google.com/document/d/113oqF4DkciIKmYj0guurphucRrgBxKhN3wX5LDrRhZU/edit?tab=t.0",
+      "poc": ["Hemanth- +91 7780472627","B. Lalith - +91 7702056977","Shreyas: +91 6204852122"],
+      "prize_pool": "#"
     },
     {
       "name": "Micromouse",
       "img_src": "/images/micromouse.png",
-      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006"
+      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006",
+      "start_date": "#",
+      "end_date": "#",
+      "description": "#",
+      "rulebook_link": "#",
+      "poc": [],
+      "prize_pool": "#"
     },
     {
       "name": "ByteRace",
       "img_src": "/images/byterace.png",
-      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006"
+      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006",
+      "start_date": "#",
+      "end_date": "#",
+      "description": "Byte race is an online coding contest held on codeforces. It invloves 6-8 coding questions based on logical thinking, data structures and various algorithms. It's a platform that ignites passion for coding and emphasizes the collective effort essential in the world of competitive programming.",
+      "rulebook_link": "#",
+      "poc": [],
+      "prize_pool": "60000"
     },
     {
       "name": "NJATH",
       "img_src": "/images/njath.png",
-      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006"
+      "register_link": "https://chat.whatsapp.com/HfbU3pj2m7UA9GjCjXYKFa",
+      "start_date": "15th Oct 2025",
+      "end_date": "18th Oct 2025",
+      "description": "All options set, you signal for the machine to be turned on. Almost immediately a nauseating feeling overtakes those inside the room. After a while the nausea slowly subsides.Transformation Complete. Time taken: 321 years. There was a glitch in Sector A3 however. User is requested to fix it personally ,the machine blurts out, displaying a glitchy map of the sector in question.Celesta presents NJATH, a not so run of the mill Treasure Hunt. Try solving consecutive rounds of mind-numbing questions as you get closer to the treasure.",
+      "rulebook_link": "#",
+      "poc": ["Nakshatra Kanchan (+91 7644965300)" ,"Viraj Kulkarni (+91 99709 44019)"],
+      "prize_pool": "10000H"
     },
     {
       "name": "CivilTech Challenge",
       "img_src": "/images/civiltech.png",
-      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006"
+      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006",
+      "start_date": "#",
+      "end_date": "#",
+      "description": "#",
+      "rulebook_link": "#",
+      "poc": [],
+      "prize_pool": "#"
     },
     {
-      "name": "ForgeX",
-      "img_src": "/images/mates.png",
-      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006"
+      "name": "Green Forge",
+      "img_src": "/images/forge.png",
+      "register_link": "https://unstop.com/p/case-study-indian-institute-of-technology-iit-patna-1617632?utm_campaign=site-emails&utm_medium=d2c-automated&utm_source=opportunity-approved",
+      "start_date": "13th Jan 2026",
+      "end_date": "20th Jan 2026",
+      "description": "The Green Steel Case Study event, where participants will be given a fixed duration after the theme is revealed to analyze the problem, develop solutions, and submit their final presentation. Teams are required to propose technically sound, innovative, and feasible solutions supported by clear assumptions and analysis. All submissions will be accepted online within the specified deadline. This event is open to individual participants as well as teams. Selected teams will get chance to present their solution offline in IIT PATNA.",
+      "rulebook_link": "https://drive.google.com/file/d/1pm6yE1IGQtPid6qJvEFHsNCNzQph4Jb9/view?usp=drivesdk",
+      "poc": ["Anand Kumar - 9341388842","Shashi Raghava -9014780492"],
+      "prize_pool": "5000"
     },
     {
       "name": "Static Rush",
       "img_src": "/images/staticrush.png",
-      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006"
+      "register_link": "https://forms.gle/Eivmct746Q6pr9Sa8",
+      "start_date": "24th Jan 2026",
+      "end_date": "24th Jan 2026",
+      "description": "Basically,  this event will be of treasure hunt type . At each location we would place a clue with a volunteer and if they solve that clue , they will be proceeded to other locations of the rush with a component of a circuit. At the final stage they should build the circuit with the components given at each stage of the rush",
+      "rulebook_link": "https://docs.google.com/document/d/1sJfrO-sZNTi8Y2g511EEWnSjG0ih2vQyeNRRvSe5XHo/edit?usp=sharing",
+      "poc": [" Anuj-9737714868","Sarthak-6291654031"],
+      "prize_pool": "5000"
     },
     {
       "name": "APD",
       "img_src": "/images/apd.png",
-      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006"
+      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006",
+      "start_date": "#",
+      "end_date": "#",
+      "description": "#",
+      "rulebook_link": "#",
+      "poc": [],
+      "prize_pool": "#"
     },
     {
       "name": "Wavebots",
       "img_src": "/images/wavebots.png",
-      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006"
+      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006",
+      "start_date": "#",
+      "end_date": "#",
+      "description": "#",
+      "rulebook_link": "#",
+      "poc": [],
+      "prize_pool": "#"
     },
     {
       "name": "Depiction",
       "img_src": "/images/depiction.png",
-      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006"
+      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006",
+      "start_date": "#",
+      "end_date": "#",
+      "description": "The event will be an online competition open for everyone in which the participants are required to paint anything on the theme 'Ruins to Radiance’ And submit their entries before the deadline(to be notified). Any medium can be used by the participants",
+      "rulebook_link": "https://docs.google.com/document/d/1JDxH5P83FSrHHGZpGvhW9snbdSHBdzCqvisp-9hrUPE/edit?usp=drivesdk",
+      "poc": ["(93413 88842) anand","(89820 94147 )riddhesh"],
+      "prize_pool": "8000"
     },
     {
       "name": "Astro Particle Voyage",
       "img_src": "/images/astroparticle.png",
-      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006"
+      "register_link": "https://unstop.com/o/SJmPIXp?lb=uXL2AZ2n&utm_medium=Share&utm_source=celesiit76505&utm_campaign=Online_coding_challenge",
+      "start_date": "#",
+      "end_date": "#",
+      "description": "The event is an online event consisting of 2 rounds in which the first round is quiz round that delves into the fascinating realms of Quantum Physics and Astronomy.And the second round is the coding round to utilize their skills for data science projects in astronomy. ",
+      "rulebook_link": "https://docs.google.com/document/d/1MO2h3kIyZmbjKQl3-YZ5qocAAvsljk-fp17pOsahUOY/edit?usp=sharing",
+      "poc": ["Sejal Goel: 9815916201","Tanush : 9860052707"],
+      "prize_pool": "3000"
     },
     {
       "name": "Kepler's Maze",
       "img_src": "/images/keplers-maze.png",
-      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006"
+      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006",
+      "start_date": "24th Jan 2026",
+      "end_date": "24th Jan 2026",
+      "description": "There will be a maze with locations having names of celestial bodies in our solar system and there will be a puzzle piece at each location.",
+      "rulebook_link": "https://docs.google.com/document/d/1EfPZQ5xjRtegvdN0GfviJvuta8KmDAQQCKgh5MHS-pg/edit?usp=sharing",
+      "poc": ["Nehal garg: 8000125232","Hardik Batwal: 78931 81686"],
+      "prize_pool": "5000"
     },
     {
       "name": "Case Study Competition",
       "img_src": "/images/casestudy.png",
-      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006"
+      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006",
+      "start_date": "#",
+      "end_date": "#",
+      "description": "#",
+      "rulebook_link": "#",
+      "poc": [],
+      "prize_pool": "#"
     },
     {
       "name": "Future Visionaries",
       "img_src": "/images/futurevisionaries.png",
-      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006"
+      "register_link": "https://unstop.com/events/visions-of-sovereignty-indian-institute-of-technology-iit-patna-1622088",
+      "start_date": "13th Jan 2026",
+      "end_date": "23rd Jan 2026",
+      "description": "This is a theme-based short film-making event, where a total of 10 days will be given after revealing the theme to script, shoot, edit, and submit the final film. A short synopsis of the film must also be submitted by the event deadline. Submission will be taken online. This is an individual/group event.",
+      "rulebook_link": "https://www.notion.so/Celesta-x-Pixxel-2bb02d318ccc80c6869fed1d4bd2c66f",
+      "poc": ["Sushant :- 99484 64006","Anuj -9974614860"],
+      "prize_pool": "Celesta goodies + Mention from Celesta Handle"
     },
     {
       "name": "Meme Marketing",
       "img_src": "/images/mememarketing.png",
-      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006"
+      "register_link": "https://unstop.com/o/YNLbj0G?lb=uXL2AZ2n&utm_medium=Share&utm_source=celesiit76505&utm_campaign=Events",
+      "start_date": "10th Jan 2026",
+      "end_date": "25th Jan 2026",
+      "description": " Get ready to dive into the world of marketing as the club presents King of Memes a competition. It's not just about creating memes; it's about unlocking the secrets of effective marketing while having a blast",
+      "rulebook_link": "https://drive.google.com/file/d/1AEXmGwMyxTpwnMZzz9voO3ChrslNPi7l/view?usp=drivesdk",
+      "poc": ["Prasanapriyan G-8050106985","Satyam sanu-8434491728"],
+      "prize_pool": "8500"
     },
     {
       "name": "Beg Borrow Steal",
       "img_src": "/images/begborrowsteal.png",
-      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006"
+      "register_link": "#",
+      "start_date": "25th Jan 2026",
+      "end_date": "25th Jan 2026",
+      "description": "So many items to be found, but so little time. Gather your friends or foes and use whatever means possible in order to attain the maximum amount of items in the given time period. Remember, the only rule is that the items should be genuine. The rest is up to you :)",
+      "rulebook_link": "https://docs.google.com/document/d/1BqQ2C-fwXymxPiRfOdlFIuGeyDmugNEQYWxV5BHZXCI/edit?usp=drivesdk",
+      "poc": ["Shashi Raghava - 9014780492","Chathurya – 6300868491","Sagar Soni - 6201537775","Prateek -  92059 74532"],
+      "prize_pool": "#"
     },
     {
       "name": "Documentation",
       "img_src": "/images/documentation.png",
-      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006"
+      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006",
+      "start_date": "#",
+      "end_date": "#",
+      "description": "#",
+      "rulebook_link": "#",
+      "poc": [],
+      "prize_pool": "#"
     },
     {
       "name": "Tech Quiz",
       "img_src": "/images/techquiz.png",
-      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006"
+      "register_link": "https://unstop.com/college-fests/celesta-2025-indian-institute-of-technology-patna-383006",
+      "start_date": "#",
+      "end_date": "#",
+      "description": "#",
+      "rulebook_link": "#",
+      "poc": [],
+      "prize_pool": "#"
+    },
+    {
+      "name": "Bridge It Up",
+      "img_src": "/images/techquiz.png",
+      "register_link": "#",
+      "start_date": "24th Jan 2026",
+      "end_date": "24th Jan 2026",
+      "description": "#",
+      "rulebook_link": "https://drive.google.com/file/d/13njHr-ks3GOz8JIM4E6K5sLFKBWn3ytM/view?usp=sharing",
+      "poc": ["Lire Nirin-8798864140", "Hemanth-7780472627"," priyadarshini-9969346881"],
+      "prize_pool": "#"
+    },
+    {
+      "name": "Youth Parliament",
+      "img_src": "/images/techquiz.png",
+      "register_link": "#",
+      "start_date": "23rd Jan 2026",
+      "end_date": "23rd Jan 2026",
+      "description": "#",
+      "rulebook_link": "#",
+      "poc": ["Abhinav Gupta  - 9078198215","Sagar soni - 6201537775"],
+      "prize_pool": "5000"
+    },
+    {
+      "name": "Mind Benders",
+      "img_src": "/images/techquiz.png",
+      "register_link": "#",
+      "start_date": "25th Jan 2026",
+      "end_date": "25th Jan 2026",
+      "description": "a mental and logical ability test like no other! Test your intellect, solve intricate puzzles, and push your logical reasoning to its limits. Whether you're a seasoned puzzle solver or a curious mind eager to explore, this event is designed to intrigue and inspire.",
+      "rulebook_link": "https://docs.google.com/document/d/1oi9l82pZCO3dHE1I0f4Xqiw8j9HQe8PA0lp68znr9OM/edit?usp=drivesdk",
+      "poc": ["Soma Mishra-9493497100"],
+      "prize_pool": "10000"
+    },
+     {
+      "name": "Quest-ion",
+      "img_src": "/images/techquiz.png",
+      "register_link": "https://unstop.com/o/jnQN5om?lb=uXL2AZ2n&utm_medium=Share&utm_source=celesiit76505&utm_campaign=Quizzes",
+      "start_date": "24th Jan 2026",
+      "end_date": "24th Jan 2026",
+      "description": "Sci-Biz-Tech quiz",
+      "rulebook_link": "https://drive.google.com/file/d/1E4GbDylvV4i4A9ITVnaLqaviEDh021sF/view?usp=drivesdk",
+      "poc": ["Sarthak Poddar (6291654031)"],
+      "prize_pool": "5000"
+    },{
+      "name": "Automated Musical Chairs(Robet Rockers)",
+      "img_src": "/images/techquiz.png",
+      "register_link": "#",
+      "start_date": "24th Jan 2026",
+      "end_date": "24th Jan 2026",
+      "description": "Robot Rockers is an autonomous robotics competition based on musical chairs, where robots detect music and light signals to race for illuminated safe zones when the music stops—one robot is eliminated each round, and the last surviving bot wins.",
+      "rulebook_link": "https://docs.google.com/document/d/10-Xs1AXhjO7GzqUUW2XI-D1IWA_sBw-WDgMc5OCXNyM/edit?usp=sharing",
+      "poc": ["Divyam: +91-8077288523","Vishnu: +91-9491164719"],
+      "prize_pool": "5000"
+    },
+    {
+      "name": "CAD Battle",
+      "img_src": "/images/techquiz.png",
+      "register_link": "#",
+      "start_date": "23rd Jan 2026",
+      "end_date": "25th Jan 2026",
+      "description": "Unleash your design instincts! Join forces with your teammates and battle the clock in this high-octane CAD challenge. Score high, design smart, and stay original—because authenticity is the ultimate rule.",
+      "rulebook_link": "https://docs.google.com/document/d/1qQ8mULJ0YMZO1pS9g-MVR5U9-RDR5j09/edit?usp=drivesdk&ouid=109378209912139136730&rtpof=true&sd=true",
+      "poc": ["Burgu Rishanka 9866696944","jayaram 7649912796","Purushotam kumar 9964031326"],
+      "prize_pool": "#"
     }
   ]
 }
