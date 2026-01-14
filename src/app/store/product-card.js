@@ -20,14 +20,14 @@ export default function ProductCard({ name, cost, img_src, id }) {
   };
 
   return (
-    <div className="p-4 rounded-xl w-[28rem] transition hover:scale-105 shadow-xl flex flex-col">
+    <div className="p-4 rounded-xl w-[28rem] transition hover:scale-105 shadow-xl flex flex-col backdrop-blur-md border-2 border-neutral-900">
       {/* Image Container */}
       <div className="relative w-full h-[32rem] overflow-hidden rounded-xl">
         <Image
           src={img_src}
           alt={name}
           fill
-          className="object-cover brightness-50"
+          className="object-contain brightness-50"
         />
 
         {/* Overlay Content (correctly placed inside image container) */}
