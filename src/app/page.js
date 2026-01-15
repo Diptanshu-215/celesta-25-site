@@ -368,22 +368,29 @@ export default function Home() {
           </h2>
           <div className="flex justify-center items-center gap-6">
             <Image
-              src="/images/landing/merch-front.png"
+              src="/images/merch4.png"
               alt="merch-front"
               width={220}
               height={220}
               className="inline-block"
             />
             <Image
-              src="/images/landing/merch-side.png"
-              alt="merch-side"
+              src="/images/merch1.png"
+              alt="merch-front"
               width={220}
               height={220}
               className="inline-block"
             />
             <Image
-              src="/images/landing/merch-back.png"
-              alt="merch-back"
+              src="/images/merch2.png"
+              alt="merch-front"
+              width={220}
+              height={220}
+              className="inline-block"
+            />
+            <Image
+              src="/images/merch3.png"
+              alt="merch-front"
               width={220}
               height={220}
               className="inline-block"
