@@ -7,13 +7,14 @@ import { useCart } from "@/context/CartContext";
 import { ShoppingCart } from 'lucide-react';
 import { checkout } from '@/lib/checkout'
 import Script from 'next/script';
+import { calculateCartTotal } from '@/lib/pricing_algo';
 
 export default function FloatingCart() {
 
   const { cart, emptyCart } = useCart();
 
   const getTotal = () => {
-    return cart.reduce((acc, item) => acc + item.cost * item.quantity, 0);
+    return calculateCartTotal(cart);
   };
   const [isOpen, setIsOpen] = useState(false);
   const [isScriptLoaded, setIsScriptLoaded] = useState(false);

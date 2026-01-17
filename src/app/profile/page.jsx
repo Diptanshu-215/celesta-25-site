@@ -28,6 +28,7 @@ import { Button } from "@/components/ui/button";
 import styles from "./Profile.module.css";
 import { useCart } from "@/context/CartContext";
 import { checkout } from '@/lib/checkout'
+import { calculateCartTotal } from '@/lib/pricing_algo';
 
 export default function Profile() {
     const router = useRouter();
@@ -141,7 +142,7 @@ export default function Profile() {
     };
     const { cart, removeFromCart, emptyCart } = useCart();
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-    const totalPrice = cart.reduce((sum, item) => sum + (item.cost * item.quantity), 0);
+    const totalPrice = calculateCartTotal(cart);
     const { invoices } = useInvoices();
 
     return (

@@ -1,9 +1,9 @@
 import axios from "axios"
+import { calculateCartTotal } from "./pricing_algo";
 
 export async function checkout(cart, authUser) {
-  const getTotal = () => {
-    return cart.reduce((acc, item) => acc + item.cost * item.quantity, 0);
-  };
+  const getTotal = () => calculateCartTotal(cart);
+
   if (authUser) {
     console.log(cart)
     const token = await authUser.getIdToken(true)
