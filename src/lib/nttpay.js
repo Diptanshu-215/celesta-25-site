@@ -1,22 +1,25 @@
 
 import crypto from "crypto";
 
-const req_enc_key = process.env.REQ_ENC_KEY;
-const req_salt = process.env.REQ_SALT;
-const res_dec_key = process.env.RES_DEC_KEY;
-const res_salt = process.env.RES_SALT;
-
 const algorithm = "aes-256-cbc";
-const reqPassword = Buffer.from(req_enc_key, "utf8");
-const reqSalt = Buffer.from(req_salt, "utf8");
-const resPassword = Buffer.from(res_dec_key, "utf8");
-const resSalt = Buffer.from(res_salt, "utf8");
+
 const iv = Buffer.from(
     [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
     "utf8"
 );
 
 export const encrypt = (text) => {
+    const req_enc_key = process.env.REQ_ENC_KEY || "";
+    const req_salt = process.env.REQ_SALT || "";
+
+    if (!req_enc_key || !req_salt) {
+        console.warn("Missing Encryption Keys");
+        return "";
+    }
+
+    const reqPassword = Buffer.from(req_enc_key, "utf8");
+    const reqSalt = Buffer.from(req_salt, "utf8");
+
     // console.log("Encrypt function called with text:", text);
     var derivedKey = crypto.pbkdf2Sync(reqPassword, reqSalt, 65536, 32, "sha512");
     // console.log("Derived key for encryption generated:", derivedKey);
@@ -30,6 +33,17 @@ export const encrypt = (text) => {
 };
 
 export const decrypt = (text) => {
+    const res_dec_key = process.env.RES_DEC_KEY || "";
+    const res_salt = process.env.RES_SALT || "";
+
+    if (!res_dec_key || !res_salt) {
+        console.warn("Missing Decryption Keys");
+        return "";
+    }
+
+    const resPassword = Buffer.from(res_dec_key, "utf8");
+    const resSalt = Buffer.from(res_salt, "utf8");
+
     // console.log("Decrypt function called with text:", text);
     const encryptedText = Buffer.from(text, "hex");
     // console.log("Encrypted text converted to buffer:", encryptedText);
