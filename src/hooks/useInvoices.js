@@ -17,8 +17,12 @@ export function useInvoices() {
       return;
     }
 
-    // Query tickets where uid == user.uid
-    const q = query(collection(db, "invoices"), where('uid', '==', user.uid));
+    // Query tickets where uid == user.uid AND status == 'PAID'
+    const q = query(
+      collection(db, "invoices"),
+      where('uid', '==', user.uid),
+      where('status', '==', 'PAID')
+    );
 
     // Subscribe to real-time updates
     const unsubscribe = onSnapshot(q, (querySnapshot) => {

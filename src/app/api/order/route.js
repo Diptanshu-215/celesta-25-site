@@ -29,21 +29,14 @@ export async function POST(request) {
     const uid = decodedToken.uid;
     const db = adminFirestore;
     console.log(parsed)
-    let fest_pass_claimed = false;
-    parsed.cart.forEach(async item => {
-     if((item.id == "FEST_PASS" || item.type == "event") && !fest_pass_claimed) {
-       // allocate pass for user
-      const userDocRef = db.collection('users').doc(uid);
-      const userDoc = await userDocRef.get();
-      await userDocRef.update({
-        qrEnabled: true,
-      });
-      fest_pass_claimed = true;
-     }
-    });
+    /* Security Update: Access granted only after payment response */
+    // let fest_pass_claimed = false;
+    // parsed.cart.forEach(async item => { ... });
+
     const docRef = await db.collection("invoices").add({
       // ...parsed.data,
       ...parsed,
+      status: "PENDING",
       createdAt: Timestamp.now(),
       uid: uid,
     });
