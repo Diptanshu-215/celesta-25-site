@@ -1,98 +1,100 @@
 .background {
-  min-height: 100vh;
-  background-image: linear-gradient(to bottom, transparent 70%, rgba(0, 0, 0, 0.5)),
-    url('/images/backdrop.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url("/images/hero-background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .background2 {
-  min-height: 100vh;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url('/images/home-backdrop2.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-  z-index: 10;
+    min-height: 100vh;
+    background-image: url("/images/home-backdrop2.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Parallax effect */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
 
-.card {
-  background: linear-gradient(180deg, rgba(10, 18, 28, 0.6), rgba(5, 8, 12, 0.6));
-  border: 2px solid rgba(20, 160, 255, 0.12);
-  padding: 0;
-  border-radius: 8px;
-  overflow: hidden;
-  position: relative;
+/* Add an overlay to ensure text readability */
+.background::before,
+.background2::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    /* Dark overlay */
+    z-index: 0;
 }
 
-.cardMeta {
-  position: absolute;
-  bottom: 12px;
-  left: 12px;
-  right: 12px;
-  padding: 8px;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
-  border-left: 3px solid rgba(20, 160, 255, 0.35);
-  color: #fff;
+/* Ensure content sits above overlay */
+.background>*,
+.background2>* {
+    z-index: 1;
 }
 
-/* TECHY VIDEO BOX FRAME */
 .glimpseFrame {
-  max-width: 900px;
-  background: rgba(10, 10, 20, 0.6);
-  border: 1px solid rgba(0, 224, 255, 0.3);
-  padding: 10px;
-  /* Reduced inner padding for cleaner video look */
-  border-radius: 20px;
-  position: relative;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  overflow: hidden;
-  /* Ensures child elements don't spill out */
+    width: 100%;
+    max-width: 900px;
+    position: relative;
+    border-radius: 12px;
+    padding: 4px;
+    /* Space for the border effect */
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.4), rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 80%, rgba(0, 255, 255, 0.4));
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2), inset 0 0 20px rgba(0, 255, 255, 0.1);
+    overflow: hidden;
+    transition: all 0.4s ease;
+    z-index: 1;
 }
 
-/* Corner Accents using pseudo-elements on the FRAME */
+/* Inner content wrapper to mask video corners */
+.glimpseFrame video {
+    border-radius: 8px;
+    display: block;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.glimpseFrame:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.4), inset 0 0 30px rgba(0, 255, 255, 0.2);
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.8), rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0) 60%, rgba(0, 255, 255, 0.8));
+}
+
+/* Decorative corner lines */
 .glimpseFrame::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 40px;
-  height: 40px;
-  border-top: 3px solid #00e0ff;
-  border-left: 3px solid #00e0ff;
-  border-top-left-radius: 10px;
-  z-index: 10;
-  pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    border-top: 2px solid cyan;
+    border-left: 2px solid cyan;
+    border-top-left-radius: 12px;
+    opacity: 0.8;
+    pointer-events: none;
 }
 
 .glimpseFrame::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 40px;
-  height: 40px;
-  border-bottom: 3px solid #00e0ff;
-  border-right: 3px solid #00e0ff;
-  border-bottom-right-radius: 10px;
-  z-index: 10;
-  pointer-events: none;
-}
-
-/* Optional: Scanline effect or grid background inside the frame border area? */
-.glimpseFrame {
-  background-image:
-    linear-gradient(rgba(0, 224, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 224, 255, 0.03) 1px, transparent 1px);
-  background-size: 30px 30px;
-}
-
-/* tweak for reveal-section if you want slightly later reveal */
-.reveal-section {
-  will-change: transform, opacity;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    border-bottom: 2px solid cyan;
+    border-right: 2px solid cyan;
+    border-bottom-right-radius: 12px;
+    opacity: 0.8;
+    pointer-events: none;
 }

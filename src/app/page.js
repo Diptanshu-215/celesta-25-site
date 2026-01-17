@@ -370,30 +370,30 @@ export default function Home() {
             <Image
               src="/images/merch4.png"
               alt="merch-front"
-              width={220}
-              height={220}
-              className="inline-block"
+              width={350}
+              height={350}
+              className="inline-block hover:scale-110 transition-transform duration-300"
             />
             <Image
               src="/images/merch1.png"
               alt="merch-front"
-              width={220}
-              height={220}
-              className="inline-block"
+              width={350}
+              height={350}
+              className="inline-block hover:scale-110 transition-transform duration-300"
             />
             <Image
               src="/images/merch2.png"
               alt="merch-front"
-              width={220}
-              height={220}
-              className="inline-block"
+              width={350}
+              height={350}
+              className="inline-block hover:scale-110 transition-transform duration-300"
             />
             <Image
               src="/images/merch3.png"
               alt="merch-front"
-              width={220}
-              height={220}
-              className="inline-block"
+              width={350}
+              height={350}
+              className="inline-block hover:scale-110 transition-transform duration-300"
             />
           </div>
         </section>
