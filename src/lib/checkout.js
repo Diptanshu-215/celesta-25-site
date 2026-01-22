@@ -1,7 +1,7 @@
 import axios from "axios"
 import { calculateCartTotal } from "./pricing_algo";
 
-export async function checkout(cart, authUser) {
+export async function checkout(cart, authUser, payload) {
   const getTotal = () => calculateCartTotal(cart);
 
   if (authUser) {
@@ -10,7 +10,8 @@ export async function checkout(cart, authUser) {
     try {
       const response = await axios.post('/api/order', {
         cart,
-        total: getTotal()
+        total: getTotal(),
+        payload
       }, {
         headers: {
           'Authorization': `Bearer ${token}`

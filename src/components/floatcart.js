@@ -94,44 +94,9 @@ export default function FloatingCart() {
               </div>
             )}
 
-            <button
-              disabled={!isScriptLoaded}
-              onClick={async () => {
-                if (!isScriptLoaded) {
-                  alert("Payment gateway is still loading. Please wait a moment.");
-                  return;
-                }
-
-                try {
-                  const data = await checkout(cart, authUser);
-                  if (data && data.token) {
-                    const options = {
-                      atomTokenId: data.token,
-                      merchId: data.merchId,
-                      custEmail: authUser.email || "test.user@gmail.com",
-                      custMobile: "8888888888", // Should ideally come from user profile
-                      returnUrl: `${window.location.origin}/api/payment/response`
-                    };
-
-                    // Ensure AtomPaynetz is loaded and available
-                    if (window.AtomPaynetz) {
-                      const atom = new window.AtomPaynetz(options, process.env.NEXT_PUBLIC_ATOM_ENV === 'prod' ? 'prod' : 'uat');
-                    } else {
-                      console.error("AtomPaynetz object not found on window despite script load event");
-                      alert("Payment gateway error. Please refresh and try again.");
-                    }
-                    setIsOpen(false);
-                  } else {
-                    console.error("No token received from checkout API");
-                  }
-                } catch (error) {
-                  console.error("Checkout error:", error);
-                }
-              }}
-              className={`text-left px-4 py-2 text-white rounded-md transition-colors ${!isScriptLoaded ? 'opacity-50 cursor-not-allowed' : 'hover:bg-white/10'}`}
-            >
-              {isScriptLoaded ? 'Check Out' : 'Loading...'}
-            </button>
+              <Link href="/profile" onClick={() => setIsOpen(false)} className="text-xs text-teal-400 px-3 py-1 rounded-full hover:bg-teal-500/30 transition-colors uppercase font-bold tracking-wider">
+                Cart
+              </Link>
 
           </nav>
         </div>

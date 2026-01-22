@@ -29,11 +29,17 @@ import styles from "./Profile.module.css";
 import { useCart } from "@/context/CartContext";
 import { checkout } from '@/lib/checkout'
 import { calculateCartTotal } from '@/lib/pricing_algo';
+import { ModalForm } from './checkout_modal.js';
 
 export default function Profile() {
     const router = useRouter();
     const { authUser, loading, signOutUser } = useAuth();
     const qrRef = useRef(null);
+    const [checkoutModalOpen,setCheckoutModalOpen] = useState(false);
+    const [college, setCollege] = useState('');
+    const [aadhar, setAadhar] = useState('');
+    const [collegeId, setCollegeId] = useState('');
+    const [phone, setPhone] = useState('');
 
     const [profile, setProfile] = useState({
         name: "",
@@ -44,6 +50,40 @@ export default function Profile() {
     });
     const [qrValue, setQrValue] = useState("");
 
+    const startCheckout = () => {
+        setCheckoutModalOpen(true);
+     }
+    
+    const initiateCheckout = async (payload) => {
+
+                                            if (typeof window !== 'undefined' && !window.AtomPaynetz) {
+                                                alert("Payment gateway is initializing. Please try again in a few seconds.");
+                                                return;
+                                            }
+
+                                            try {
+                                                const data = await checkout(cart, authUser, payload);
+                                                if (data && data.token) {
+                                                    const options = {
+                                                        atomTokenId: data.token,
+                                                        merchId: data.merchId,
+                                                        custEmail: authUser.email || "test.user@gmail.com",
+                                                        custMobile: "8888888888",
+                                                        returnUrl: `${window.location.origin}/api/payment/response`
+                                                    };
+
+                                                    if (window.AtomPaynetz) {
+                                                        new window.AtomPaynetz(options, process.env.NEXT_PUBLIC_ATOM_ENV === 'prod' ? 'prod' : 'uat');
+                                                    } else {
+                                                        console.error("AtomPaynetz object not found");
+                                                        alert("Payment gateway error. Please refresh.");
+                                                    }
+                                                }
+                                            } catch (err) {
+                                                console.error(err);
+                                                alert("Error initiating checkout");
+                                            }
+    }
 
     useEffect(() => {
         async function fetchProfile() {
@@ -306,38 +346,14 @@ export default function Profile() {
                                         Empty Cart
                                     </button>
                                     <button
-                                        onClick={async () => {
-                                            if (typeof window !== 'undefined' && !window.AtomPaynetz) {
-                                                alert("Payment gateway is initializing. Please try again in a few seconds.");
-                                                return;
-                                            }
-
-                                            try {
-                                                const data = await checkout(cart, authUser);
-                                                if (data && data.token) {
-                                                    const options = {
-                                                        atomTokenId: data.token,
-                                                        merchId: data.merchId,
-                                                        custEmail: authUser.email || "test.user@gmail.com",
-                                                        custMobile: "8888888888",
-                                                        returnUrl: `${window.location.origin}/api/payment/response`
-                                                    };
-
-                                                    if (window.AtomPaynetz) {
-                                                        new window.AtomPaynetz(options, process.env.NEXT_PUBLIC_ATOM_ENV === 'prod' ? 'prod' : 'uat');
-                                                    } else {
-                                                        console.error("AtomPaynetz object not found");
-                                                        alert("Payment gateway error. Please refresh.");
-                                                    }
-                                                }
-                                            } catch (err) {
-                                                console.error(err);
-                                                alert("Error initiating checkout");
-                                            }
-                                        }}
+                                        onClick={() => {
+                                            startCheckout();
+                                        }
+                                        }
                                         className="px-8 py-3 bg-green-600 text-white font-semibold rounded-md hover:bg-green-700 transition">
                                         Checkout (₹{totalPrice})
                                     </button>
+                                    <ModalForm isOpen={checkoutModalOpen} onClose={()=>setCheckoutModalOpen(false)} onSubmit={(payload)=>initiateCheckout(payload)}/>
                                 </div>
                             </div>
                     }
