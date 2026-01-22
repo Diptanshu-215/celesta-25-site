@@ -91,6 +91,15 @@ export default function Register() {
       return;
     }
 
+    const IITP_REGEX = /^[a-zA-Z]+_[0-9]{4}[a-zA-Z]{2}[0-9]{2}@iitp\.ac\.in$/;
+    const flag = IITP_REGEX.test(formData.email);
+
+    if(flag){
+       toast.error("IITP College students are not allowed to register.");
+       setDisabled(false);
+      return;
+    }
+
     try {
 
       const otp = Math.floor(100000 + Math.random() * 900000).toString();
