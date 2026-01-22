@@ -99,7 +99,7 @@ const HeroParallax = ({ products }: { products: Product[] }) => {
             </div>
             <div
                 ref={ref}
-                className="h-[350vh] overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+                className="h-auto md:h-[350vh] overflow-visible md:overflow-hidden antialiased relative flex flex-col self-auto md:[perspective:1000px] md:[transform-style:preserve-3d]"
             >
                 <div className="absolute inset-0 z-0 opacity-50 [mask-image:radial-gradient(ellipse_at_center,transparent_65%,white_100%)]">
                     <svg className="absolute inset-0 h-full w-full" aria-hidden="true">
@@ -118,7 +118,7 @@ const HeroParallax = ({ products }: { products: Product[] }) => {
                         translateY,
                         opacity,
                     }}
-                    className=""
+                    className="hidden md:block"
                 >
                     <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
                         {[...firstRow, ...firstRow].map((product, index) => (
@@ -181,6 +181,41 @@ const HeroParallax = ({ products }: { products: Product[] }) => {
                         ))}
                     </motion.div>
                 </motion.div>
+
+                {/* Mobile View */}
+                <div className="block md:hidden pb-20 px-4 mt-10">
+                    <div className="grid grid-cols-1 gap-8">
+                        {products.map((product, index) => (
+                            <div
+                                key={`mobile-${index}`}
+                                className="relative h-80 w-full rounded-xl overflow-hidden cursor-pointer shadow-lg"
+                                onClick={() => {
+                                    const originalIndex = products.findIndex(p => p.thumbnail === product.thumbnail && p.title === product.title);
+                                    if (originalIndex !== -1) {
+                                        openModal(originalIndex)
+                                    }
+                                }}
+                            >
+                                <Image
+                                    src={product.thumbnail}
+                                    alt={product.title}
+                                    fill
+                                    className="object-cover transition-transform duration-300 hover:scale-105"
+                                    onError={(e) => {
+                                        (e.target as HTMLImageElement).src = `https://placehold.co/600x600/000000/FFFFFF?text=${product.title.replace(/\s/g, '+') || 'Image'}`;
+                                    }}
+                                />
+                                {product.title && (
+                                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                                        <h2 className="text-white text-xl font-bold">
+                                            {product.title}
+                                        </h2>
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
             <AnimatePresence>
                 {selectedProductIndex !== null && (
