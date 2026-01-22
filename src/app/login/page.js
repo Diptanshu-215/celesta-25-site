@@ -52,6 +52,15 @@ export default function LogIn() {
       return;
     }
 
+    const IITP_REGEX = /^[a-zA-Z]+_[0-9]{4}[a-zA-Z]{2}[0-9]{2}@iitp\.ac\.in$/;
+    const flag = IITP_REGEX.test(formData.email);
+     if(flag){
+       toast.error("IITP College students are not allowed to login.");
+       setDisabled(false);
+      return;
+    }
+
+
     try {
       const auth = getAuth();
       const userCredential = await signInWithEmail(formData.email, formData.password);
