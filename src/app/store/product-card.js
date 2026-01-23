@@ -57,7 +57,7 @@ export default function ProductCard({ name, cost, img_src, id }) {
         </h1>
 
         <div className="mt-auto">
-          {getQuantity() > 0 ? (
+          {getQuantity() > 0 && (name.toLowerCase().includes("ticket") || name.toLowerCase().includes("pass")) ? (
             <div className="flex items-center justify-between bg-white/5 rounded-xl p-1 border border-white/10">
               <button
                 onClick={handleRemoveFromCart}
@@ -73,6 +73,15 @@ export default function ProductCard({ name, cost, img_src, id }) {
                 +
               </button>
             </div>
+          ) : !name.toLowerCase().includes("ticket") && !name.toLowerCase().includes("pass") ? (
+            <a
+              href="https://docs.google.com/forms/d/1bUKdpY3OrDKRRUE47aE9crF3eV7KA6UJLGXdWl9Upuw/edit?usp=forms_home&ouid=111557439966389345576&ths=true"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full text-center py-3 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold uppercase tracking-wider text-sm shadow-lg shadow-cyan-900/20 hover:shadow-cyan-500/40 transition-all duration-300 active:scale-95"
+            >
+              Buy
+            </a>
           ) : (
             <button
               onClick={handleAddToCart}
