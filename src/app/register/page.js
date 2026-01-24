@@ -254,7 +254,7 @@ export default function Register() {
                       value={formData.password}
                       onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                       className="p-2 pr-10 border-2 rounded-lg text-white w-full bg-transparent focus:outline-none focus:border-teal-600"
-                      placeholder="Enter your password"
+                      placeholder="Minimum 6 characters"
                       required
                     />
                     <button
