@@ -208,23 +208,6 @@ The project follows a standard Next.js directory structure with additional modul
 └── jsconfig.json                 # JavaScript configuration (if not using TypeScript widely)
 ```
 
----
-
-## 🤝 Contributing
-
-We welcome contributions to make Celesta '25 even better! If you'd like to contribute, please follow these steps:
-
-1.  **Fork** the repository.
-2.  **Clone** your forked repository: `git clone https://github.com/your-username/celesta-25-site.git`
-3.  **Create a new branch**: `git checkout -b feature/your-feature-name`
-4.  **Make your changes** and commit them with descriptive commit messages.
-5.  **Push** your changes to your fork: `git push origin feature/your-feature-name`
-6.  **Open a Pull Request** to the `main` branch of the original repository.
-
-Please ensure your code adheres to the existing style and conventions.
-
----
-
 ## 📜 License
 
 This project is licensed under the MIT License. See the `LICENSE` file (if present, otherwise assume MIT for open-source project) for details.
